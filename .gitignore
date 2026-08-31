@@ -12,3 +12,9 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# 个人隐私数据：投递记录 / 岗位导入种子（含真实投递去向，禁止开源）
+positions-import.js
+positions-*.json
+my-*.js
+my-*.json
