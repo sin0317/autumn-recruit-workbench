@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>秋招信息工作台 · 2027届</title>
+<style>
+  :root{
+    --cream:#FAF8F3; --cream2:#F3EEE5; --panel:#FFFFFF;
+    --ink:#2E2A33; --muted:#8A8493; --line:#ECE5DA;
+    --purple:#E7DEF7; --purple-d:#B49BDB; --purple-deep:#6E52A6;
+    --coral:#FF7A66; --coral-d:#E85C47; --coral-soft:#FFE6E0;
+    --serif:"Songti SC","Noto Serif SC",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6}
+  .app{display:grid;grid-template-columns:236px 1fr;min-height:100vh}
+  /* sidebar */
+  .side{background:linear-gradient(180deg,#EFE7FA,#E3D8F3);padding:22px 16px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh;overflow:auto}
+  .brand{font-family:var(--serif);font-size:22px;font-weight:800;color:var(--purple-deep);margin-bottom:4px;line-height:1.25}
+  .brand small{display:block;font-family:var(--sans);font-size:11px;color:var(--muted);font-weight:500;margin-top:2px}
+  .nav-btn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:transparent;color:var(--ink);
+    padding:11px 12px;border-radius:12px;font-size:14px;cursor:pointer;font-family:var(--sans);transition:.15s}
+  .nav-btn .ic{font-size:16px;width:20px;text-align:center}
+  .nav-btn:hover{background:rgba(255,255,255,.55)}
+  .nav-btn.active{background:#fff;color:var(--purple-deep);font-weight:700;box-shadow:0 4px 14px rgba(110,82,166,.12)}
+  .side .foot{margin-top:auto;font-size:11px;color:var(--muted);padding-top:14px;border-top:1px solid rgba(110,82,166,.18)}
+  /* main */
+  .main{padding:26px 30px 60px;overflow:auto}
+  h1,h2,h3{font-family:var(--serif);font-weight:800}
+  .page-title{font-size:26px;margin:0 0 2px}
+  .page-sub{color:var(--muted);font-size:13px;margin:0 0 20px}
+  .page{display:none} .page.show{display:block;animation:fade .25s}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 4px 18px rgba(110,82,166,.05)}
+  .grid-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .stat .n{font-family:var(--serif);font-size:30px;font-weight:800}
+  .stat .l{color:var(--muted);font-size:12px}
+  .stat.coral .n{color:var(--coral-d)} .stat.soe .n{color:var(--purple-deep)} .stat.purple{background:linear-gradient(135deg,#F3ECFB,#E7DEF7)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+  select,input,textarea{font-family:var(--sans);font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--purple-d);border-color:var(--purple-d)}
+  textarea{resize:vertical;width:100%}
+  .btn{border:0;border-radius:10px;padding:8px 14px;font-size:13px;cursor:pointer;font-family:var(--sans);font-weight:600;background:var(--purple-deep);color:#fff;transition:.15s}
+  .btn:hover{filter:brightness(1.07)} .btn.coral{background:var(--coral)} .btn.coral:hover{background:var(--coral-d)}
+  .btn.ghost{background:#fff;color:var(--purple-deep);border:1px solid var(--purple-d)}
+  .btn.sm{padding:5px 10px;font-size:12px}
+  .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700}
+  .badge-soe{background:#EDE4FA;color:#6E52A6} .badge-net{background:var(--coral-soft);color:var(--coral-d)}
+  .st-open{color:#3a9d6b;font-weight:700} .st-urgent{color:var(--coral-d);font-weight:800} .st-closed{color:#a59db3}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--purple-deep);background:var(--cream2);position:sticky;top:0}
+  tr:hover td{background:#FBF7FF}
+  .link{color:var(--coral-d);text-decoration:none;font-weight:600}
+  .muted{color:var(--muted);font-size:12px}
+  .note{color:var(--muted);font-size:11px}
+  .pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;background:var(--cream2);margin:2px 4px 2px 0}
+  .pill.on{background:var(--coral);color:#fff}
+  .pipeline{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+  .stage{flex:1;min-width:110px;background:var(--cream2);border-radius:12px;padding:10px;text-align:center;font-size:12px;color:var(--muted)}
+  .stage b{display:block;font-size:20px;font-family:var(--serif);color:var(--ink)}
+  .stage.active{background:var(--purple);color:var(--purple-deep)}
+  .row{display:flex;gap:14px;flex-wrap:wrap}
+  .row>.col{flex:1;min-width:280px}
+  .kv{font-size:13px;margin:4px 0}
+  .kv b{color:var(--purple-deep)}
+  .modal-bg{position:fixed;inset:0;background:rgba(46,42,51,.4);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+  .modal-bg.show{display:flex}
+  .modal{background:#fff;border-radius:16px;padding:22px;max-width:560px;width:100%;max-height:86vh;overflow:auto}
+  .modal h3{margin-top:0}
+  .field{margin:8px 0}
+  .field label{display:block;font-size:12px;color:var(--purple-deep);font-weight:700;margin-bottom:3px}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--purple-deep);color:#fff;padding:10px 18px;border-radius:24px;font-size:13px;opacity:0;transition:.3s;z-index:80;pointer-events:none}
+  .toast.show{opacity:1}
+  .empty{color:var(--muted);text-align:center;padding:30px;font-size:14px}
+  .qitem{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;background:#fff}
+  .qitem .q{font-weight:700;cursor:pointer;display:flex;justify-content:space-between;gap:10px}
+  .qitem .a{margin-top:8px}
+  pre.code{background:#2E2A33;color:#F3EEE5;border-radius:12px;padding:14px;white-space:pre-wrap;word-break:break-word;font-size:12.5px;line-height:1.55;max-height:320px;overflow:auto}
+  @media(max-width:860px){
+    .app{grid-template-columns:1fr} 
+    .side{position:relative;height:auto;flex-direction:row;flex-wrap:wrap;gap:4px;padding:12px}
+    .brand{width:100%} .nav-btn{flex:1 1 auto;justify-content:center;padding:8px 10px;font-size:12.5px}
+    .side .foot{display:none}
+    .main{padding:18px 16px 50px}
+    .grid-stats{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand">秋招工作台<small>2027届 · 刘峻豪</small></div>
+    <button class="nav-btn active" data-page="pool"><span class="ic">🗂️</span>信息池看板</button>
+    <button class="nav-btn" data-page="jobs"><span class="ic">📋</span>岗位管理</button>
+    <button class="nav-btn" data-page="resume"><span class="ic">📄</span>简历定制</button>
+    <button class="nav-btn" data-page="interview"><span class="ic">🎤</span>面试进度</button>
+    <button class="nav-btn" data-page="prep"><span class="ic">🧠</span>面试准备</button>
+    <button class="nav-btn" data-page="board"><span class="ic">📊</span>独立看板</button>
+    <div class="foot">数据本地存储于浏览器<br>看板与 JSON 同目录自动刷新</div>
+  </aside>
+
+  <main class="main">
+    <!-- 信息池看板 -->
+    <section class="page show" id="page-pool">
+      <h1 class="page-title">信息池看板</h1>
+      <p class="page-sub">每日 8:00 自动搜集更新 · 仅 2027 届 · 已排除社招 · 来源：国资委 / 中国公共招聘网 / 国聘网 / 各集团与大厂官网</p>
+      <div class="grid-stats" id="poolStats"></div>
+      <div class="toolbar">
+        <select id="fCat"><option value="">全部类别</option><option value="央国企">央国企</option><option value="互联网大厂">互联网大厂</option></select>
+        <select id="fStatus"><option value="">全部状态</option><option value="open">报名中</option><option value="urgent">即将截止</option><option value="closed">已截止</option></select>
+        <input id="fSearch" placeholder="搜索单位 / 岗位 / 关键词" style="flex:1;min-width:180px">
+        <button class="btn ghost" id="btnRefresh">↻ 刷新数据</button>
+      </div>
+      <div class="card" style="padding:0;overflow:auto">
+        <table id="poolTable"><thead><tr>
+          <th>单位</th><th>岗位 / 项目</th><th>类别</th><th>批次</th><th>截止</th><th>状态</th><th>来源 / 发布</th><th>操作</th>
+        </tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+
+    <!-- 岗位管理 -->
+    <section class="page" id="page-jobs">
+      <h1 class="page-title">岗位管理</h1>
+      <p class="page-sub">自动抓取（信息池一键录入）+ 手动补充 · 全链路追踪</p>
+      <div class="pipeline" id="pipeline"></div>
+      <div class="toolbar">
+        <button class="btn coral" id="btnAddJob">+ 手动新增岗位</button>
+        <select id="jfStatus"><option value="">按状态筛选</option><option>未投递</option><option>已投递</option><option>笔试中</option><option>面试中</option><option>offer</option><option>已拒绝</option></select>
+        <input id="jfSearch" placeholder="搜索单位 / 岗位" style="flex:1;min-width:160px">
+      </div>
+      <div class="card" style="padding:0;overflow:auto">
+        <table id="jobsTable"><thead><tr>
+          <th>单位</th><th>岗位</th><th>类别</th><th>截止</th><th>状态</th><th>备注</th><th>操作</th>
+        </tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+
+    <!-- 简历定制 -->
+    <section class="page" id="page-resume">
+      <h1 class="page-title">简历定制</h1>
+      <p class="page-sub">按方向管理多版简历 · 对照 JD 自动生成修改要点</p>
+      <div class="row">
+        <div class="col card">
+          <div class="toolbar"><b style="font-family:var(--serif)">我的简历版本</b><button class="btn sm" id="btnAddResume">+ 新增版本</button></div>
+          <div id="resumeList"></div>
+        </div>
+        <div class="col card">
+          <b style="font-family:var(--serif)">JD 对照 · 修改要点</b>
+          <div class="field"><label>选择目标简历版本</label><select id="jdResume"></select></div>
+          <div class="field"><label>粘贴岗位 JD（文字即可）</label><textarea id="jdText" rows="7" placeholder="例如：负责艺人宣发短视频策划与剪辑，熟练使用 Premiere/After Effects，有抖音运营经验，会使用 AI 工具提效……"></textarea></div>
+          <button class="btn coral" id="btnGenPoints">⚡ 生成修改要点</button>
+          <div class="field" style="margin-top:10px"><label>修改要点（可编辑保存）</label><textarea id="jdPoints" rows="10"></textarea></div>
+          <button class="btn ghost sm" id="btnSavePoints">保存要点到该简历</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 面试进度 -->
+    <section class="page" id="page-interview">
+      <h1 class="page-title">面试进度</h1>
+      <p class="page-sub">统一记录每场面试的问题与复盘</p>
+      <div class="toolbar"><button class="btn coral" id="btnAddInterview">+ 记录一场面试</button></div>
+      <div id="interviewList"></div>
+    </section>
+
+    <!-- 面试准备 -->
+    <section class="page" id="page-prep">
+      <h1 class="page-title">面试准备</h1>
+      <p class="page-sub">模拟电话面试排练 · 高频题 · 优势劣势分析</p>
+      <div class="row">
+        <div class="col card">
+          <b style="font-family:var(--serif)">📞 模拟电话面试排练指令</b>
+          <div class="field"><label>选择方向</label><select id="callDir"></select></div>
+          <button class="btn" id="btnGenCall">生成排练指令</button>
+          <div class="field" style="margin-top:10px"><label>复制以下内容发给 AI 开始模拟</label><pre class="code" id="callScript"></pre></div>
+          <button class="btn ghost sm" id="btnCopyCall">复制指令</button>
+        </div>
+        <div class="col card">
+          <b style="font-family:var(--serif)">💪 优势 / 劣势分析</b>
+          <div class="field"><label>优势（每行一条，可编辑）</label><textarea id="proStr" rows="7"></textarea></div>
+          <div class="field"><label>劣势 / 待改进（每行一条，可编辑）</label><textarea id="conStr" rows="5"></textarea></div>
+          <button class="btn ghost sm" id="btnSaveProfile">保存画像</button>
+          <button class="btn ghost sm" id="btnRecalibrate" title="用真实简历（AA刘峻豪简历_v2）重新校准优势/劣势/简历版本">⟳ 用真实简历重新校准</button>
+          <div class="field" style="margin-top:8px"><label>面试准备清单</label><div id="prepCheck"></div></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <b style="font-family:var(--serif)">❓ 高频面试题（点击展开填写答案）</b>
+        <div id="qaList"></div>
+      </div>
+    </section>
+
+    <!-- 独立看板 -->
+    <section class="page" id="page-board">
+      <h1 class="page-title">独立可视化看板</h1>
+      <p class="page-sub">由 generate.js 从 recruit-data.json 生成，定时任务每日刷新</p>
+      <div class="card" style="text-align:center;padding:40px">
+        <p>看板为同目录独立页面 <code>dashboard.html</code>，包含统计卡片、即将截止提醒与按截止时间排序的列表。</p>
+        <a class="btn coral" href="dashboard.html" target="_blank">📊 打开独立看板（新窗口）</a>
+        <p class="muted" style="margin-top:12px">提示：若看板未更新，请先运行 <code>node generate.js</code>，或点上方「信息池看板」的刷新数据。</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- 通用弹窗 -->
+<div class="modal-bg" id="modalBg"><div class="modal" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+
+<!-- 信息池数据（同目录，定时任务更新后刷新） -->
+<script src="recruit-seed.js"></script>
+<script>
+/* ============ 基础工具 ============ */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const LS = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } },
+  set(k, v){ localStorage.setItem(k, JSON.stringify(v)); }
+};
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),1800); }
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function todayMid(){ const t=new Date(); return new Date(t.getFullYear(),t.getMonth(),t.getDate()); }
+function statusOf(rec){
+  const base=todayMid();
+  const dl=rec.deadline?new Date(rec.deadline+'T00:00:00'):null;
+  if(dl){ const diff=Math.round((dl-base)/86400000);
+    if(diff<0) return {key:'closed',label:'已截止',diff};
+    if(diff<=14) return {key:'urgent',label:'即将截止',diff};
+    return {key:'open',label:'报名中',diff};
+  }
+  return {key:'open',label:'报名中(待公布)',diff:null};
+}
+function fmtDate(d){ return d?d:''; }
+
+/* ============ 默认画像/数据（基于已知简历预填） ============ */
+const DEFAULT_PROFILE = {
+  name:'刘峻豪',
+  email:'（你的邮箱）',
+  phone:'（你的电话）',
+  wechat:'（你的微信）',
+  portfolio:'（你的作品集链接）',
+  school:'河南大学 · 药学 2027 届',
+  strengths:[
+    '视觉内容全流程制作：脚本策划→拍摄→剪辑→调色→成片，独立完成艺人 MV / 抖音短视频 / 纪录片，懂音乐也懂画面',
+    '网感与审美调性：独立运营抖音（粉丝近 3000），产出单条播放量近百万的爆款；深度参与 Hip-Hop 青年文化，能快速适配艺人 / 品牌视觉风格',
+    'AIGC 视觉创作工作流：精通即梦 AI / 可灵 AI 文生视频、图生视频，覆盖脚本可视化→动态分镜→风格化调色',
+    '数据驱动内容优化：跨平台 A/B 测试与数据分析，整体内容转化效率提升约 30%，可迁移「假设-验证」方法论',
+    '地下八英里宣发实习（西安顽态地尚，Live 内容运营）：0→1 搭建 2500+ 人核心粉丝社群（活跃度 20%+），助力 5000 人体育馆门票售罄',
+    '大型演出线下落地执行：体育馆演唱会现场票务咨询、错票 / 实名错误票带入场协调',
+    '开源 AI 工作流实践：河南大学新生攻略 Skill（GitHub 开源，SkillHub 参赛）、PPT Quick Report 多工具生产管线（MIT 开源）',
+    '2025 外研社·国才杯「理解当代中国」国赛 英语组 短视频赛项 铜奖；演出经纪人证书；CET-4 合格'
+  ],
+  weaknesses:[
+    '非科班（药学专业），影视 / 传媒非对口 → 以作品集与实战项目补位，讲成「专业内容×大众表达」的差异化视角',
+    '正式实习仅一段（西安顽态地尚 2025.11-2026.02，约 3 个月），大厂长期实习占比少',
+    '偏视觉 / 内容执行，商业化投放与投放 ROI 经验较少（可用社群转化与 A/B 提效迁移）',
+    '修图（PS / Lightroom）非强项，靠 Premiere / 剪映调色补位，正在补齐',
+    '北京线下长周期实习需协调在校时间，远程 / 弹性优先（每周 ≥3 天含周末）'
+  ],
+  prep:[
+    '准备 1 分钟 / 3 分钟两版自我介绍（视频向，用作品集与数据佐证）',
+    '整理作品集：（你的作品集链接）（抖音爆款 + AIGC 短片《梦回汴梁》）',
+    '演练 STAR 行为题：地下八英里社群增长闭环、跨平台 A/B 测试提效 30%',
+    '补行业认知：艺人宣传 / 视频行业趋势（哇唧唧哇、影视飓风等代表案例）',
+    '准备 3 个高质量反问（团队重点宣发项目 / 实习生成长路径 / AI 工具使用程度）',
+    '模拟电话面试前测试设备与网络',
+    '沉淀「AI 赋能运营 / 内容」案例（京东面试题套路：诊断分层→归因→策略矩阵→A/B 验证→ROI）',
+    '梳理开源项目话术：河南大学新生攻略 Skill、PPT Quick Report 管线'
+  ]
+};
+const DEFAULT_RESUMES = [
+  {id:uid(),name:'通用版（母版 AA刘峻豪简历_v2）',direction:'综合 / 视频内容',highlights:'全流程剪辑调色;AIGC;抖音运营;短视频铜奖;地下八英里',updatedAt:'2026-08-31',points:''},
+  {id:uid(),name:'哇唧唧哇艺人宣传版 v1',direction:'影视宣传 / 艺人宣发',highlights:'地下八英里宣发;2500+社群;5000人门票售罄;短视频;Hip-Hop',updatedAt:'2026-08-30',points:''},
+  {id:uid(),name:'视觉导演 / 视频制片版（影视飓风·火山方舟）',direction:'影视制作 / 视觉导演',highlights:'Premiere;Ae;剪映;分镜;现场执行;《梦回汴梁》',updatedAt:'2026-08-31',points:''},
+  {id:uid(),name:'AIGC / AI 内容版（网易内容极客）',direction:'AIGC / 创意短片 / AI 内容',highlights:'即梦;可灵;Coze;开源工作流;数据驱动提效30%',updatedAt:'2026-08-31',points:''}
+];
+const DEFAULT_QA = [
+  {q:'请做一分钟自我介绍',a:'突出：河南大学药学背景下长出的复合内容能力——视觉内容全流程（脚本→拍摄→剪辑→调色）+AIGC（即梦/可灵）+音乐制作（Logic Pro X）；用抖音近百万播放爆款、地下八英里 2500+ 社群、GitHub 开源工作流佐证；收尾点名目标方向（艺人宣传/视觉导演），作品集（你的作品集链接）。'},
+  {q:'为什么选择这个岗位 / 方向？',a:'结合自身宣发实习与爆款运营数据，说明对「内容×传播」的长期兴趣与匹配度。'},
+  {q:'你最大的优势是什么？',a:'全链路内容生产+AI提效：从脚本、拍摄、剪辑调色到混音一手包办，并用即梦/可灵提速。'},
+  {q:'你的劣势 / 不足是什么？',a:'坦诚「非科班+修图弱」：以作品与实战补位，正在用剪映/Pr调色替代PS；并说明学习路径。'},
+  {q:'介绍你最满意的作品 / 项目',a:'主推两个：① 地下八英里宣发——0→1 搭建 2500+ 人核心粉丝社群（活跃 20%+），跨平台 A/B 测试让整体引流效率提升约 30%，直接助力 5000 人体育馆门票售罄；② AIGC 商业短片《梦回汴梁》（AI 复活《清明上河图》×实拍现代开封匹配剪辑）。讲清创意、你的分工、可量化数据。'},
+  {q:'你是药学专业，为什么做影视 / 内容？',a:'把专业讲成「差异化视角」：医药传播、健康科普内容稀缺，复合背景反而能打通「专业内容×大众表达」。'},
+  {q:'如何处理多方反馈与反复修改？',a:'用版本管理与接收标准（brief对齐→小样确认→终版）控制返工；举地下八英里宣发实例。'},
+  {q:'举例说明你如何用 AI 提效',a:'即梦/可灵做分镜预演与素材生成，Pr脚本化批量处理，缩短 30%+ 制作周期。'},
+  {q:'你如何看待加班 / 强度？',a:'内容行业节奏认同；以模块负责人方式端到端负责，用工具与流程把强度转化为产出。'},
+  {q:'你的职业规划？',a:'1-2年深耕宣发/视觉执行，3年具备独立项目统筹能力，长期做「内容策略+AI生产」复合型。'},
+  {q:'你期望的薪资 / 实习待遇？',a:'参考实习市场（如 100-150 元/天），表达更看重成长与作品沉淀。'},
+  {q:'你有什么想问我们的？',a:'问团队当前重点宣发项目、实习生成长路径、AI工具在业务中的使用程度。'}
+];
+
+/* ============ 状态 ============ */
+let PROFILE = LS.get('qz_profile', DEFAULT_PROFILE);
+let RESUMES = LS.get('qz_resumes', DEFAULT_RESUMES);
+let POSITIONS = LS.get('qz_positions', []);
+let INTERVIEWS = LS.get('qz_interviews', []);
+let QA = LS.get('qz_qa', DEFAULT_QA);
+const RECRUIT = window.__RECRUIT_DATA__ || {meta:{updatedAt:'(未加载)'},records:[]};
+
+function dataOk(){ return window.__RECRUIT_DATA__ && window.__RECRUIT_DATA__.records && window.__RECRUIT_DATA__.records.length; }
+
+/* ============ 导航 ============ */
+$$('.nav-btn').forEach(b=>b.addEventListener('click',()=>{
+  $$('.nav-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  $$('.page').forEach(p=>p.classList.remove('show'));
+  $('#page-'+b.dataset.page).classList.add('show');
+  if(b.dataset.page==='pool') renderPool();
+  if(b.dataset.page==='jobs') renderJobs();
+  if(b.dataset.page==='resume') renderResume();
+  if(b.dataset.page==='interview') renderInterviews();
+  if(b.dataset.page==='prep') renderPrep();
+}));
+
+/* ============ 信息池看板 ============ */
+function renderPool(){
+  if(!dataOk()){ $('#poolTable tbody').innerHTML='<tr><td colspan="8" class="empty">未找到 recruit-seed.js，请将本文件与 recruit-seed.js / recruit-data.json 放在同一目录。</td></tr>'; $('#poolStats').innerHTML=''; return; }
+  const recs=RECRUIT.records;
+  let total=recs.length,open=0,urgent=0,closed=0;
+  recs.forEach(r=>{const s=statusOf(r); if(s.key==='closed')closed++; else{open++; if(s.key==='urgent')urgent++;}});
+  $('#poolStats').innerHTML=`
+    <div class="card stat"><div class="n">${total}</div><div class="l">招聘总数</div></div>
+    <div class="card stat soe"><div class="n">${open}</div><div class="l">报名中（未截止）</div></div>
+    <div class="card stat coral"><div class="n">${urgent}</div><div class="l">14 天内截止</div></div>
+    <div class="card stat purple"><div class="n">${closed}</div><div class="l">已截止</div></div>`;
+  const cat=$('#fCat').value, st=$('#fStatus').value, kw=$('#fSearch').value.trim().toLowerCase();
+  const list=recs.filter(r=>{
+    const s=statusOf(r);
+    if(cat && r.category!==cat) return false;
+    if(st && s.key!==st) return false;
+    if(kw && !(r.org+r.position+r.source+(r.deadlineNote||'')).toLowerCase().includes(kw)) return false;
+    return true;
+  }).sort((a,b)=>{ const da=a.deadline||'9999-12-31', db=b.deadline||'9999-12-31'; return da<db?-1:da>db?1:0; });
+  if(!list.length){ $('#poolTable tbody').innerHTML='<tr><td colspan="8" class="empty">无匹配记录</td></tr>'; return; }
+  $('#poolTable tbody').innerHTML=list.map(r=>{
+    const s=statusOf(r); const badge=r.category==='央国企'?'badge-soe':'badge-net';
+    const stcls=s.key==='closed'?'st-closed':s.key==='urgent'?'st-urgent':'st-open';
+    const inJobs=POSITIONS.some(p=>p.srcId===r.id);
+    return `<tr>
+      <td><b>${esc(r.org)}</b></td>
+      <td>${esc(r.position)}</td>
+      <td><span class="badge ${badge}">${esc(r.category)}</span></td>
+      <td>${esc(r.batch)}</td>
+      <td class="${stcls}">${r.deadline?esc(r.deadline):'<span class="muted">待公布</span>'}${r.deadlineNote?`<br><span class="note">${esc(r.deadlineNote)}</span>`:''}</td>
+      <td class="${stcls}">${esc(s.label)}</td>
+      <td class="muted">${esc(r.source)}<br>${r.publishedAt?'发布 '+esc(r.publishedAt):'发布待定'}</td>
+      <td>${inJobs?'<span class="muted">已录入</span>':`<button class="btn sm coral" data-enter="${r.id}">录入岗位</button>`} <a class="link" href="${esc(r.url)}" target="_blank">公告↗</a></td>
+    </tr>`;
+  }).join('');
+  $$('#poolTable [data-enter]').forEach(b=>b.addEventListener('click',()=>enterJob(b.dataset.enter)));
+}
+function enterJob(id){
+  const r=RECRUIT.records.find(x=>x.id===id); if(!r) return;
+  if(POSITIONS.some(p=>p.srcId===id)){ toast('该岗位已在岗位管理中'); return; }
+  POSITIONS.unshift({id:uid(),srcId:id,org:r.org,position:r.position,category:r.category,batch:r.batch,deadline:r.deadline||'',source:r.source,url:r.url,status:'未投递',note:r.deadlineNote||''});
+  LS.set('qz_positions',POSITIONS); toast('已录入：'+r.org); renderJobs();
+}
+$('#fCat').addEventListener('change',renderPool);
+$('#fStatus').addEventListener('change',renderPool);
+$('#fSearch').addEventListener('input',renderPool);
+$('#btnRefresh').addEventListener('click',()=>{
+  const s=document.createElement('script'); s.src='recruit-seed.js?v='+Date.now(); s.onload=()=>{ RECRUIT=window.__RECRUIT_DATA__; renderPool(); toast('信息池已刷新'); }; s.onerror=()=>toast('刷新失败：请确认 recruit-seed.js 在同目录'); document.body.appendChild(s);
+});
+
+/* ============ 岗位管理 ============ */
+const STATUSES=['未投递','已投递','笔试中','面试中','offer','已拒绝'];
+function renderPipeline(){
+  const counts={}; STATUSES.forEach(s=>counts[s]=0); POSITIONS.forEach(p=>counts[p.status]=(counts[p.status]||0)+1);
+  const map={'未投递':'待投递','已投递':'已投','笔试中':'笔试','面试中':'面试','offer':'Offer','已拒绝':'已拒'};
+  $('#pipeline').innerHTML=STATUSES.map(s=>`<div class="stage"><b>${counts[s]}</b>${map[s]}</div>`).join('');
+}
+function renderJobs(){
+  renderPipeline();
+  const f=$('#jfStatus').value, kw=$('#jfSearch').value.trim().toLowerCase();
+  const list=POSITIONS.filter(p=>(!f||p.status===f)&&(!kw||(p.org+p.position).toLowerCase().includes(kw)));
+  if(!list.length){ $('#jobsTable tbody').innerHTML='<tr><td colspan="7" class="empty">暂无岗位，去「信息池看板」一键录入或手动新增</td></tr>'; return; }
+  $('#jobsTable tbody').innerHTML=list.map(p=>{
+    const stcls=p.status==='已拒绝'?'st-closed':p.status==='offer'?'st-urgent':'st-open';
+    const sel=STATUSES.map(s=>`<option ${s===p.status?'selected':''}>${s}</option>`).join('');
+    return `<tr>
+      <td><b>${esc(p.org)}</b></td>
+      <td>${esc(p.position)}</td>
+      <td><span class="badge ${p.category==='央国企'?'badge-soe':'badge-net'}">${esc(p.category||'')}</span></td>
+      <td class="${stcls}">${p.deadline?esc(p.deadline):'<span class="muted">待公布</span>'}</td>
+      <td><select data-st="${p.id}">${sel}</select></td>
+      <td class="muted">${esc(p.note||'')}</td>
+      <td><button class="btn sm ghost" data-note="${p.id}">备注</button> <button class="btn sm" data-del="${p.id}" style="background:#F3D9D3;color:#B23A26">删除</button></td>
+    </tr>`;
+  }).join('');
+  $$('#jobsTable [data-st]').forEach(s=>s.addEventListener('change',()=>{ const p=POSITIONS.find(x=>x.id===s.dataset.st); p.status=s.value; LS.set('qz_positions',POSITIONS); renderPipeline(); toast('状态→'+p.status); }));
+  $$('#jobsTable [data-note]').forEach(b=>b.addEventListener('click',()=>{ const p=POSITIONS.find(x=>x.id===b.dataset.note); const v=prompt('备注（进度/HR/渠道等）：',p.note||''); if(v!==null){ p.note=v; LS.set('qz_positions',POSITIONS); renderJobs(); } }));
+  $$('#jobsTable [data-del]').forEach(b=>b.addEventListener('click',()=>{ if(confirm('确认删除该岗位记录？')){ POSITIONS=POSITIONS.filter(x=>x.id!==b.dataset.del); LS.set('qz_positions',POSITIONS); renderJobs(); } }));
+}
+$('#jfStatus').addEventListener('change',renderJobs);
+$('#jfSearch').addEventListener('input',renderJobs);
+$('#btnAddJob').addEventListener('click',()=>{
+  openModal(`<h3>手动新增岗位</h3>
+    <div class="field"><label>单位名称</label><input id="m_org" placeholder="如：影视飓风"></div>
+    <div class="field"><label>岗位 / 项目</label><input id="m_pos" placeholder="如：视频制片实习生"></div>
+    <div class="field"><label>类别</label><select id="m_cat"><option>互联网大厂</option><option>央国企</option><option>其他</option></select></div>
+    <div class="field"><label>批次</label><input id="m_batch" placeholder="如：正式批"></div>
+    <div class="field"><label>报名截止（留空=待公布）</label><input id="m_dl" type="date"></div>
+    <div class="field"><label>来源 / 公告链接</label><input id="m_src" placeholder="官网或备注"></div>
+    <div style="text-align:right;margin-top:10px"><button class="btn ghost" onclick="closeModal()">取消</button> <button class="btn coral" id="m_save">保存</button></div>`);
+  $('#m_save').addEventListener('click',()=>{
+    const org=$('#m_org').value.trim(); if(!org){ toast('请填写单位名称'); return; }
+    POSITIONS.unshift({id:uid(),srcId:'',org,position:$('#m_pos').value.trim(),category:$('#m_cat').value,batch:$('#m_batch').value.trim(),deadline:$('#m_dl').value||'',source:$('#m_src').value.trim()||'手动补充',url:'',status:'未投递',note:''});
+    LS.set('qz_positions',POSITIONS); closeModal(); renderJobs(); toast('已新增岗位');
+  });
+});
+
+/* ============ 简历定制 ============ */
+function renderResume(){
+  $('#resumeList').innerHTML=RESUMES.map(r=>`
+    <div class="card" style="margin-bottom:10px;padding:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-family:var(--serif);font-size:16px">${esc(r.name)}</b>
+      <span class="muted">${esc(r.updatedAt)}</span></div>
+      <div class="kv"><b>方向：</b>${esc(r.direction)}</div>
+      <div>${(r.highlights||'').split(';').filter(Boolean).map(h=>`<span class="pill">${esc(h)}</span>`).join('')}</div>
+      <div style="margin-top:8px"><button class="btn sm ghost" data-red="${r.id}">编辑</button> <button class="btn sm" data-delr="${r.id}" style="background:#F3D9D3;color:#B23A26">删除</button></div>
+    </div>`).join('') || '<div class="empty">暂无简历版本</div>';
+  $('#jdResume').innerHTML=RESUMES.map(r=>`<option value="${r.id}">${esc(r.name)}</option>`).join('');
+  $$('#resumeList [data-red]').forEach(b=>b.addEventListener('click',()=>editResume(b.dataset.red)));
+  $$('#resumeList [data-delr]').forEach(b=>b.addEventListener('click',()=>{ if(confirm('删除该简历版本？')){ RESUMES=RESUMES.filter(x=>x.id!==b.dataset.delr); LS.set('qz_resumes',RESUMES); renderResume(); }}));
+}
+function editResume(id){
+  const r=RESUMES.find(x=>x.id===id); if(!r) return;
+  openModal(`<h3>编辑简历版本</h3>
+    <div class="field"><label>版本名称</label><input id="r_name" value="${esc(r.name)}"></div>
+    <div class="field"><label>方向</label><input id="r_dir" value="${esc(r.direction)}"></div>
+    <div class="field"><label>亮点标签（分号分隔）</label><input id="r_hl" value="${esc(r.highlights)}"></div>
+    <div style="text-align:right;margin-top:10px"><button class="btn ghost" onclick="closeModal()">取消</button> <button class="btn coral" id="r_save">保存</button></div>`);
+  $('#r_save').addEventListener('click',()=>{ r.name=$('#r_name').value.trim()||r.name; r.direction=$('#r_dir').value.trim(); r.highlights=$('#r_hl').value.trim(); r.updatedAt=new Date().toISOString().slice(0,10); LS.set('qz_resumes',RESUMES); closeModal(); renderResume(); toast('已保存'); });
+}
+$('#btnAddResume').addEventListener('click',()=>{
+  const r={id:uid(),name:'新简历版本',direction:'',highlights:'',updatedAt:new Date().toISOString().slice(0,10),points:''};
+  RESUMES.push(r); LS.set('qz_resumes',RESUMES); editResume(r.id);
+});
+$('#btnGenPoints').addEventListener('click',()=>{
+  const rid=$('#jdResume').value; const r=RESUMES.find(x=>x.id===rid); if(!r) return;
+  const jd=$('#jdText').value;
+  if(!jd.trim()){ toast('请先粘贴 JD'); return; }
+  const jdLow=jd.toLowerCase();
+  const myTags=(r.highlights||'').split(';').map(t=>t.trim()).filter(Boolean);
+  const out=[];
+  out.push('【'+(r.name)+'】对照 JD 的修改要点：');
+  // 1) 命中优势 -> 突出
+  const hit=myTags.filter(t=>jdLow.includes(t.toLowerCase()));
+  if(hit.length) out.push('① 突出优势（JD 明确提及，建议简历前置/自我介绍首句）：\n'+hit.map(t=>'  ✅ '+t).join('\n'));
+  // 2) 通用能力词命中
+  const bank={'剪辑':'视频剪辑','调色':'达芬奇调色','premiere':'Premiere','ae':'After Effects','拍摄':'拍摄','aigc':'AIGC 即梦/可灵','ai':'AI 提效','短视频':'短视频运营','抖音':'抖音运营','运营':'内容运营','宣发':'艺人宣发','社群':'社群增长','音乐':'音乐制作/混音','混音':'混音','脚本':'脚本撰写','文案':'文案','策划':'内容策划','视觉':'视觉导演','分镜':'分镜设计'};
+  const cov=new Set(hit.map(t=>t.toLowerCase()));
+  const add=[];
+  for(const k in bank){ if(jdLow.includes(k) && !cov.has(bank[k].toLowerCase())){ add.push('  ➕ '+bank[k]); cov.add(bank[k].toLowerCase()); } }
+  if(add.length) out.push('② 建议补充/强化（JD 要求，当前版本可加项目佐证）：\n'+add.join('\n'));
+  // 3) 短板预警
+  const weak={'ps':'PS 修图','lightroom':'Lightroom','设计':'平面设计','数据复盘':'数据复盘','roi':'ROI 测算','英语':'英语','六级':'英语六级','ppt':'PPT'};
+  const wk=[]; for(const k in weak){ if(jdLow.includes(k)) wk.push('  ⚠️ '+weak[k]+'（弱项，准备话术：用 Pr/剪映调色或协作补位，并展示学习路径）'); }
+  if(wk.length) out.push('③ 弱项预案：\n'+wk.join('\n'));
+  out.push('④ 通用建议：把《梦回汴梁》AIGC 短片与抖音爆款作为作品集锚点；用「数据+作品」替代非科班顾虑；每条经历按 STAR 收口。');
+  $('#jdPoints').value=out.join('\n\n');
+  toast('已生成修改要点');
+});
+$('#btnSavePoints').addEventListener('click',()=>{
+  const r=RESUMES.find(x=>x.id===$('#jdResume').value); if(!r) return;
+  r.points=$('#jdPoints').value; r.updatedAt=new Date().toISOString().slice(0,10); LS.set('qz_resumes',RESUMES); toast('要点已保存到 '+r.name);
+});
+
+/* ============ 面试进度 ============ */
+function renderInterviews(){
+  if(!POSITIONS.length && !INTERVIEWS.length){ $('#interviewList').innerHTML='<div class="empty">还没有面试记录，先到「岗位管理」录入岗位</div>'; return; }
+  if(!INTERVIEWS.length){ $('#interviewList').innerHTML='<div class="empty">暂无面试记录，点「记录一场面试」开始</div>'; return; }
+  const order=INTERVIEWS.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  $('#interviewList').innerHTML=order.map(iv=>{
+    const p=POSITIONS.find(x=>x.id===iv.jobId);
+    return `<div class="card" style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px">
+        <b style="font-family:var(--serif)">${esc(p?p.org:'（已删岗位）')} · ${esc(iv.round||'面试')}</b>
+        <span class="muted">${esc(iv.date||'')} · ${esc(iv.form||'')}</span></div>
+      <div class="kv"><b>岗位：</b>${esc(p?p.position:'-')}</div>
+      <div class="kv"><b>问题与回答：</b></div><div class="muted" style="white-space:pre-wrap">${esc(iv.qa||'（未填）')}</div>
+      <div class="kv"><b>复盘：</b></div><div class="muted" style="white-space:pre-wrap">${esc(iv.review||'（未填）')}</div>
+      <div class="kv"><b>结果：</b><span class="pill ${iv.result&&iv.result.includes('通过')?'on':''}">${esc(iv.result||'待定')}</span></div>
+      <div style="margin-top:8px"><button class="btn sm ghost" data-ivi="${iv.id}">编辑</button> <button class="btn sm" data-ivd="${iv.id}" style="background:#F3D9D3;color:#B23A26">删除</button></div>
+    </div>`;
+  }).join('');
+  $$('#interviewList [data-ivi]').forEach(b=>b.addEventListener('click',()=>editInterview(b.dataset.ivi)));
+  $$('#interviewList [data-ivd]').forEach(b=>b.addEventListener('click',()=>{ if(confirm('删除该面试记录？')){ INTERVIEWS=INTERVIEWS.filter(x=>x.id!==b.dataset.ivd); LS.set('qz_interviews',INTERVIEWS); renderInterviews(); }}));
+}
+$('#btnAddInterview').addEventListener('click',()=>editInterview(null));
+function editInterview(id){
+  const iv=id?INTERVIEWS.find(x=>x.id===id):{id:uid(),jobId:'',date:new Date().toISOString().slice(0,10),round:'一面',form:'视频',qa:'',review:'',result:'待定'};
+  const opts=POSITIONS.map(p=>`<option value="${p.id}" ${p.id===iv.jobId?'selected':''}>${esc(p.org)} - ${esc(p.position)}</option>`).join('') || '<option value="">（无岗位，先去录入）</option>';
+  openModal(`<h3>${id?'编辑':'记录'}面试</h3>
+    <div class="field"><label>关联岗位</label><select id="i_job">${opts}</select></div>
+    <div class="field"><label>日期</label><input id="i_date" type="date" value="${esc(iv.date)}"></div>
+    <div class="row"><div class="field"><label>轮次</label><select id="i_round"><option ${iv.round==='笔试'?'selected':''}>笔试</option><option ${iv.round==='一面'?'selected':''}>一面</option><option ${iv.round==='二面'?'selected':''}>二面</option><option ${iv.round==='终面'?'selected':''}>终面</option><option ${!['笔试','一面','二面','终面'].includes(iv.round)?'selected':''}>其他</option></select></div>
+    <div class="field"><label>形式</label><select id="i_form"><option ${iv.form==='电话'?'selected':''}>电话</option><option ${iv.form==='视频'?'selected':''}>视频</option><option ${iv.form==='现场'?'selected':''}>现场</option></select></div></div>
+    <div class="field"><label>问题与回答</label><textarea id="i_qa" rows="5">${esc(iv.qa)}</textarea></div>
+    <div class="field"><label>复盘（做得好 / 待改进）</label><textarea id="i_review" rows="4">${esc(iv.review)}</textarea></div>
+    <div class="field"><label>结果</label><select id="i_res"><option ${iv.result==='待定'?'selected':''}>待定</option><option ${iv.result==='通过'?'selected':''}>通过</option><option ${iv.result==='未通过'?'selected':''}>未通过</option></select></div>
+    <div style="text-align:right;margin-top:10px"><button class="btn ghost" onclick="closeModal()">取消</button> <button class="btn coral" id="i_save">保存</button></div>`);
+  $('#i_save').addEventListener('click',()=>{
+    iv.jobId=$('#i_job').value; iv.date=$('#i_date').value; iv.round=$('#i_round').value; iv.form=$('#i_form').value;
+    iv.qa=$('#i_qa').value; iv.review=$('#i_review').value; iv.result=$('#i_res').value;
+    if(!id) INTERVIEWS.unshift(iv); LS.set('qz_interviews',INTERVIEWS); closeModal(); renderInterviews(); toast('已保存面试记录');
+  });
+}
+
+/* ============ 面试准备 ============ */
+function renderPrep(){
+  // 方向下拉（简历版本）
+  $('#callDir').innerHTML=RESUMES.map(r=>`<option value="${esc(r.direction)}">${esc(r.direction||r.name)}</option>`).join('') || '<option>通用</option>';
+  // 优势/劣势
+  $('#proStr').value=(PROFILE.strengths||[]).join('\n');
+  $('#conStr').value=(PROFILE.weaknesses||[]).join('\n');
+  $('#prepCheck').innerHTML=(PROFILE.prep||[]).map((t,i)=>`<div class="kv"><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;color:var(--ink)"><input type="checkbox" data-pc="${i}" style="margin-top:4px"> ${esc(t)}</label></div>`).join('');
+  // 高频题
+  $('#qaList').innerHTML=QA.map((it,i)=>`<div class="qitem"><div class="q" data-q="${i}"><span>${i+1}. ${esc(it.q)}</span><span class="muted">${it.a?'✎ 已填':'展开'}</span></div><div class="a" id="qa_${i}" style="display:none"><textarea rows="4" data-qa="${i}" style="width:100%">${esc(it.a)}</textarea></div></div>`).join('');
+  $$('#qaList [data-q]').forEach(el=>el.addEventListener('click',()=>{ const box=$('#qa_'+el.dataset.q); box.style.display=box.style.display==='none'?'block':'none'; }));
+  $$('#qaList [data-qa]').forEach(ta=>ta.addEventListener('change',()=>{ QA[+ta.dataset.qa].a=ta.value; LS.set('qz_qa',QA); }));
+  $('#callScript').textContent=buildCallScript($('#callDir').value);
+}
+function buildCallScript(dir){
+  const pro=(PROFILE.strengths||[]).join('；');
+  return `你现在扮演【${dir||'视频内容'}】方向的资深面试官，对我（${PROFILE.name}）进行一场约 15 分钟的电话模拟面试。
+我的背景：河南大学药学 2027 届，但具备复合内容能力——${pro}；作品锚点：AIGC 商业短片《梦回汴梁》与抖音近百万播放爆款。
+要求：
+1. 以电话口吻开场（"喂，你好，我是 XX 公司的面试官…"），全程用中文；
+2. 先让我做 1 分钟自我介绍，再围绕我的作品集与岗位匹配度连续追问 3-5 个专业问题；
+3. 中途故意抛 1 个压力/陷阱问题，考察临场反应；
+4. 每轮我回答后先简短点评再继续，最后给整体表现评分与 3 条改进建议；
+5. 当我回答"我们结束吧"时收尾。
+现在开始，请直接以面试官身份说话。`;
+}
+$('#btnGenCall').addEventListener('click',()=>{ $('#callScript').textContent=buildCallScript($('#callDir').value); toast('已生成排练指令'); });
+$('#btnCopyCall').addEventListener('click',()=>{ const t=$('#callScript').textContent; navigator.clipboard?.writeText(t); toast('指令已复制'); });
+$('#btnSaveProfile').addEventListener('click',()=>{
+  PROFILE.strengths=$('#proStr').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  PROFILE.weaknesses=$('#conStr').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  LS.set('qz_profile',PROFILE); toast('画像已保存');
+});
+$('#btnRecalibrate').addEventListener('click',()=>{
+  if(!confirm('将用真实简历（AA刘峻豪简历_v2）重新校准：\n· 优势 / 劣势 / 准备清单\n· 4 个方向简历版本\n此操作会覆盖你本地已修改的画像与简历版本，确定继续？')) return;
+  PROFILE=JSON.parse(JSON.stringify(DEFAULT_PROFILE));
+  RESUMES=JSON.parse(JSON.stringify(DEFAULT_RESUMES));
+  LS.set('qz_profile',PROFILE); LS.set('qz_resumes',RESUMES);
+  renderPrep(); renderResume(); toast('已按真实简历重新校准');
+});
+
+/* ============ 弹窗 ============ */
+function openModal(html){ $('#modalBox').innerHTML=html; $('#modalBg').classList.add('show'); }
+function closeModal(){ $('#modalBg').classList.remove('show'); }
+$('#modalBg').addEventListener('click',e=>{ if(e.target===$('#modalBg')) closeModal(); });
+
+/* ============ 初始化 ============ */
+renderPool();
+toast(dataOk()? '信息池已加载 '+RECRUIT.records.length+' 条' : '未检测到 recruit-seed.js');
+</script>
+</body>
+</html>
