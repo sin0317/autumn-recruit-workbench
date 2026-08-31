@@ -94,8 +94,8 @@
   .row>.col{flex:1;min-width:280px}
   .kv{font-size:13px;margin:4px 0}
   .kv b{color:var(--purple-deep)}
-  .modal-bg{position:fixed;inset:0;background:rgba(46,42,51,.4);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;opacity:0;transition:opacity 200ms var(--ease-out)}
-  .modal-bg.show{display:flex;opacity:1}
+  .modal-bg{position:fixed;inset:0;background:rgba(46,42,51,.4);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 200ms var(--ease-out),visibility 200ms var(--ease-out)}
+  .modal-bg.show{opacity:1;visibility:visible;pointer-events:auto}
   .modal{background:#fff;border-radius:16px;padding:22px;max-width:560px;width:100%;max-height:86vh;overflow:auto;
     transform:scale(0.96);opacity:0;transition:transform 220ms var(--ease-out),opacity 220ms var(--ease-out)}
   .modal-bg.show .modal{transform:scale(1);opacity:1}
