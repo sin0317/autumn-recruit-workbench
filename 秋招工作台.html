@@ -60,6 +60,16 @@
   .tip{background:var(--coral-soft);border:1px solid var(--coral);color:var(--coral-d);padding:10px 14px;border-radius:12px;margin-bottom:14px;font-size:13px;font-weight:600}
   .muted{color:var(--muted);font-size:12px}
   .note{color:var(--muted);font-size:11px}
+  /* 今日推荐 */
+  .rec-card{background:linear-gradient(135deg,#FBEDE7,#F4ECFB);border:1px solid var(--coral-soft);border-radius:16px;padding:16px 18px;margin:6px 0 18px}
+  .rec-head{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);margin-bottom:12px}
+  .rec-head .muted{font-size:11.5px;font-weight:400;margin-left:8px}
+  .rec-item{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border:1px solid var(--lilac-line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  .rec-item:last-child{margin-bottom:0}
+  .rec-main b{font-family:var(--serif);font-size:15px}
+  .rec-pos{font-size:14px;font-weight:600;color:var(--coral-d);margin-top:3px}
+  .rec-acts{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:96px}
+  .rec-acts .btn{white-space:nowrap}
   .pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;background:var(--cream2);margin:2px 4px 2px 0}
   .pill.on{background:var(--coral);color:#fff}
   .pipeline{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
@@ -109,6 +119,7 @@
     <section class="page show" id="page-pool">
       <h1 class="page-title">信息池看板</h1>
       <p class="page-sub">每日 8:00 自动搜集更新 · 仅 2027 届 · 已排除社招 · 来源：国资委 / 中国公共招聘网 / 国聘网 / 各集团与大厂官网</p>
+      <div class="rec-card" id="dailyRec"></div>
       <div class="grid-stats" id="poolStats"></div>
       <div class="toolbar">
         <select id="fCat"><option value="">全部类别</option><option value="央国企">央国企</option><option value="互联网大厂">互联网大厂</option></select>
@@ -287,6 +298,47 @@ $$('.nav-btn').forEach(b=>b.addEventListener('click',()=>{
 }));
 
 /* ============ 信息池看板 ============ */
+// 复制文本（优先 clipboard API，失败回退 execCommand）
+function copyText(t){
+  const done=()=>toast('已复制：'+t);
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(done).catch(()=>fallbackCopy(t,done));
+  } else fallbackCopy(t,done);
+}
+function fallbackCopy(t,done){
+  const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; ta.style.top='0'; document.body.appendChild(ta); ta.focus(); ta.select();
+  try{ document.execCommand('copy'); done&&done(); }catch(e){ toast('复制失败，请手动复制'); }
+  document.body.removeChild(ta);
+}
+// 按天确定性取 3 个报名中岗位（同日稳定、跨天变化）
+function renderDailyRec(){
+  const recs=RECRUIT.records||[];
+  const d=new Date(); const key=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+  let h=0; for(let i=0;i<key.length;i++) h=(h*31+key.charCodeAt(i))>>>0;
+  const open=recs.filter(r=>statusOf(r).key!=='closed');
+  const box=$('#dailyRec');
+  if(!open.length){ box.innerHTML='<div class="rec-head">🔥 今日推荐 <span class="muted">'+key+'</span></div><div class="muted">暂无报名中的岗位，点「↻ 刷新数据」或等待每日 8:00 更新。</div>'; return; }
+  const arr=[...open]; let seed=h;
+  const rnd=()=>{ seed=(seed*1103515245+12345)>>>0; return seed/4294967296; };
+  for(let i=arr.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); const t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
+  const picks=arr.slice(0,3);
+  box.innerHTML='<div class="rec-head">🔥 今日推荐 <span class="muted">'+key+' · 每天 8:00 自动更新 · 点「复制名称」去招聘官网搜 JD</span></div>'+
+    picks.map(r=>{
+      const badge=r.category==='央国企'?'badge-soe':'badge-net';
+      const inJobs=POSITIONS.some(p=>p.srcId===r.id);
+      return `<div class="rec-item">
+        <div class="rec-main"><b>${esc(r.org)}</b> <span class="badge ${badge}">${esc(r.category)}</span>
+          <div class="rec-pos">${esc(r.position)}</div>
+          <div class="note">${r.deadline?('截止 '+esc(r.deadline)):(r.deadlineNote||'截止待公布')}</div></div>
+        <div class="rec-acts">
+          <button class="btn sm" data-copy="${esc(r.org+' '+r.position)}">📋 复制名称</button>
+          ${r.url?`<a class="btn sm ghost" href="${esc(r.url)}" target="_blank">查看 JD ↗</a>`:''}
+          ${inJobs?'<span class="muted">已录入</span>':`<button class="btn sm coral" data-enter="${r.id}">录入</button>`}
+        </div></div>`;
+    }).join('');
+  $$('#dailyRec [data-copy]').forEach(b=>b.addEventListener('click',()=>copyText(b.dataset.copy)));
+  $$('#dailyRec [data-enter]').forEach(b=>b.addEventListener('click',()=>enterJob(b.dataset.enter)));
+}
 function renderPool(){
   if(!dataOk()){ $('#poolTable tbody').innerHTML='<tr><td colspan="8" class="empty">未找到 recruit-seed.js，请将本文件与 recruit-seed.js / recruit-data.json 放在同一目录。</td></tr>'; $('#poolStats').innerHTML=''; return; }
   const recs=RECRUIT.records;
@@ -318,10 +370,14 @@ function renderPool(){
       <td class="${stcls}">${r.deadline?esc(r.deadline):'<span class="muted">待公布</span>'}${r.deadlineNote?`<br><span class="note">${esc(r.deadlineNote)}</span>`:''}</td>
       <td class="${stcls}">${esc(s.label)}</td>
       <td>${r.url?`<a class="src-link" href="${esc(r.url)}" target="_blank" title="${esc(r.source)}">📑 ${esc(r.source)}</a>`:`<span class="muted">${esc(r.source)}</span>`}<div class="note">${r.publishedAt?'发布 '+esc(r.publishedAt):'发布待定'}</div></td>
-      <td>${inJobs?'<span class="muted">已录入</span>':`<button class="btn sm coral" data-enter="${r.id}">录入岗位</button>`}${r.url?`<br><a class="btn sm ghost" href="${esc(r.url)}" target="_blank">查看 JD ↗</a>`:''}</td>
+      <td>${inJobs?'<span class="muted">已录入</span>':`<button class="btn sm coral" data-enter="${r.id}">录入岗位</button>`}
+        <button class="btn sm" data-copy="${esc(r.org+' '+r.position)}">📋 复制名称</button>
+        ${r.url?`<a class="btn sm ghost" href="${esc(r.url)}" target="_blank">查看 JD ↗</a>`:''}</td>
     </tr>`;
   }).join('');
   $$('#poolTable [data-enter]').forEach(b=>b.addEventListener('click',()=>enterJob(b.dataset.enter)));
+  $$('#poolTable [data-copy]').forEach(b=>b.addEventListener('click',()=>copyText(b.dataset.copy)));
+  renderDailyRec();
 }
 function enterJob(id){
   const r=RECRUIT.records.find(x=>x.id===id); if(!r) return;
