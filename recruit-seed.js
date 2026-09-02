@@ -1,7 +1,7 @@
 window.__RECRUIT_DATA__ = {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-08-31",
+    "updatedAt": "2026-09-02",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -59,9 +59,9 @@ window.__RECRUIT_DATA__ = {
       "position": "采销 / 物流 / 技术 / 产品 / 运营 / 设计",
       "category": "互联网大厂",
       "batch": "正式批",
-      "deadline": "",
-      "deadlineNote": "8月初-11月底，建议尽早网申",
-      "source": "京东校招官网 / 南京本地宝",
+      "deadline": "2026-11-30",
+      "deadlineNote": "网申8.3-11.30，建议尽早投递",
+      "source": "京东校招官网 campus.jd.com",
       "publishedAt": "2026-08-03",
       "url": "https://campus.jd.com",
       "target": "2027届本科、硕博"
@@ -111,9 +111,9 @@ window.__RECRUIT_DATA__ = {
       "position": "技术 / 产品 / 设计 / 供应链 / 职能等多方向（全球校招）",
       "category": "互联网大厂",
       "batch": "正式批",
-      "deadline": "",
-      "deadlineNote": "招满即止",
-      "source": "小米招聘 / 网易",
+      "deadline": "2026-12-31",
+      "deadlineNote": "网申2026.8.10-12.31，招满即止",
+      "source": "小米招聘官网 hr.xiaomi.com",
       "publishedAt": "2026-08-05",
       "url": "https://hr.xiaomi.com",
       "target": "2027届（2026.9.1-2027.8.31毕业）"
@@ -203,7 +203,7 @@ window.__RECRUIT_DATA__ = {
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "各分子公司截止不同，以分公司公告为准",
+      "deadlineNote": "8月底启动，各分子公司截止不同，以分公司公告为准",
       "source": "中国电信招贤纳士专栏 / 高顿",
       "publishedAt": "2026-08-24",
       "url": "http://www.chinatelecom.com.cn/zp/",
@@ -333,7 +333,7 @@ window.__RECRUIT_DATA__ = {
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "预计2026年9月开启网申（预测）",
+      "deadlineNote": "预计2026年9月15日公告/开启网申（预测，以官网为准）",
       "source": "中石油招聘系统",
       "publishedAt": "",
       "url": "https://zhaopin.cnpc.com.cn",
@@ -346,7 +346,7 @@ window.__RECRUIT_DATA__ = {
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "预计2026年9月开启网申（预测）",
+      "deadlineNote": "预计2026年9月25日公告/开启网申（预测，以官网为准）",
       "source": "中石化招聘官网",
       "publishedAt": "",
       "url": "https://job.sinopec.com",
@@ -416,7 +416,72 @@ window.__RECRUIT_DATA__ = {
       "publishedAt": "2026-08-05",
       "url": "https://www.iguopin.com",
       "target": "2027届"
+    },
+    {
+      "id": "kuaishou-2027",
+      "org": "快手",
+      "position": "算法类 / 工程类 / 产品类 / 运营类 / 游戏类 / 设计类 / 市场类 / 销售类 / 职能类 / 战略分析类 / 项目管理类（含快Star顶尖技术人才计划、AI全栈开发 / Agent开发）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "网申8月12日起，全年持续开放投递，招满即止",
+      "source": "快手校招官网 campus.kuaishou.cn / 国科大就业网",
+      "publishedAt": "2026-08-12",
+      "url": "https://campus.kuaishou.cn",
+      "target": "2027届（2026.11-2027.10毕业）"
+    },
+    {
+      "id": "xiaohongshu-2027",
+      "org": "小红书",
+      "position": "搜索 / 推荐 / 广告 / 基座大模型 / AI Agent / AI Infra / AI Coding / 多模态 / 语音 / 引擎架构 / 多媒体 / 安全 / 云原生 / 存储数据库（REDstar顶尖人才计划）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "8月25日启动，招满即止",
+      "source": "小红书招聘 / 江南都市报",
+      "publishedAt": "2026-08-25",
+      "url": "https://campus.xiaohongshu.com",
+      "target": "2027届（含毕业两年内技术人才）"
+    },
+    {
+      "id": "chinamobile-2027",
+      "org": "中国移动",
+      "position": "技术类（通信网络 / 云网 / AI大模型算法 / AI架构师） / 市场类 / 综合类（财务 / 法务 / 人力），金种子计划",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "预计2026年9月-10月中下旬网申，10月底统考（预测，以官网为准）",
+      "source": "中国移动招聘官网 job.10086.cn / 北理工就业网",
+      "publishedAt": "2026-09-01",
+      "url": "https://job.10086.cn",
+      "target": "2027届（2026届未就业亦可）"
+    },
+    {
+      "id": "chinaunicom-2027",
+      "org": "中国联通",
+      "position": "新苗计划：AI研发 / 网络安全 / 量子通信 / 网络技术 / 算网 / 数据分析 / 测试开发 / 解决方案 / 产品经理等",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "8月底启动投递，11月上旬笔试，招满即止",
+      "source": "中国联通官网(人力资源专区) / 国聘 zglt.iguopin.com",
+      "publishedAt": "2026-08-27",
+      "url": "https://www.chinaunicom.com.cn",
+      "target": "2027届（2026届未就业亦可）"
+    },
+    {
+      "id": "pinduoduo-2027",
+      "org": "拼多多",
+      "position": "云弧计划（大模型算法 / AI Infra）/ 服务端 / 算法 / 客户端 / 前端 / 数据分析 / 安全 / AI Agent；产品·市场·运营·视觉·语言·综合管培（含视频创意制作）",
+      "category": "互联网大厂",
+      "batch": "提前批",
+      "deadline": "2026-08-23",
+      "deadlineNote": "提前批已截止（2026-08-23）；云弧计划可随常规秋招各批次重复投递，正式批时间待官网确认",
+      "source": "拼多多校招官网 careers.pddglobalhr.com / 牛客·武大就业网",
+      "publishedAt": "2026-07-06",
+      "url": "https://careers.pddglobalhr.com/campus",
+      "target": "2027届（2026.9-2027.8毕业）"
     }
   ],
-  "generatedAt": "2026-08-31T00:48:02.139Z"
+  "generatedAt": "2026-09-02T03:13:03.872Z"
 };
