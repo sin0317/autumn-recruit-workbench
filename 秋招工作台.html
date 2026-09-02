@@ -134,7 +134,6 @@
     <button class="nav-btn active" data-page="pool"><span class="ic">🗂️</span>信息池看板</button>
     <button class="nav-btn" data-page="jobs"><span class="ic">📋</span>岗位管理</button>
     <button class="nav-btn" data-page="interview"><span class="ic">🎤</span>面试进度</button>
-    <button class="nav-btn" data-page="prep"><span class="ic">🧠</span>面试准备</button>
     <div class="foot">数据本地存储于浏览器<br>看板与 JSON 同目录自动刷新</div>
   </aside>
 
@@ -176,38 +175,18 @@
       </div>
     </section>
 
-    <!-- 简历定制模块已移除：提示见「面试准备」顶部 -->
+    <!-- 简历定制模块已移除；面试准备也移至 WorkBuddy，提示见「面试进度」顶部 -->
 
     <!-- 面试进度 -->
     <section class="page" id="page-interview">
       <h1 class="page-title">面试进度</h1>
       <p class="page-sub">统一记录每场面试的问题与复盘</p>
+      <div class="tip">💡 面试准备交给 WorkBuddy：把新收到的 JD 发给他，他会结合记忆里你的简历，直接产出专属面试准备 / 模拟电话排练指令。简历定制也随时可在 WorkBuddy 里做。</div>
       <div class="toolbar"><button class="btn coral" id="btnAddInterview">+ 记录一场面试</button></div>
       <div id="interviewList"></div>
     </section>
 
-    <!-- 面试准备 -->
-    <section class="page" id="page-prep">
-      <h1 class="page-title">面试准备</h1>
-      <p class="page-sub">模拟电话面试排练 · 选择方向 + 岗位 JD + 简历，一键生成排练指令</p>
-      <div class="tip">📄 简历定制已移至 WorkBuddy —— 记得到 WorkBuddy 中定制简历</div>
-      <div class="card">
-        <b style="font-family:var(--serif)">📞 生成模拟电话面试排练指令</b>
-        <div class="row" style="margin-top:10px">
-          <div class="col">
-            <div class="field"><label>选择方向</label><select id="callDir"></select></div>
-            <div class="field"><label>岗位 JD（粘贴文字，越细越好）</label><textarea id="callJD" rows="8" placeholder="例如：负责艺人宣发短视频策划与剪辑，熟练使用 Premiere/After Effects，有抖音运营经验，会使用 AI 工具提效……"></textarea></div>
-            <div class="field"><label>我的简历 / 亮点（选方向会自动带入，可改）</label><textarea id="callResume" rows="8" placeholder="粘贴你的简历要点或方向亮点……"></textarea></div>
-            <button class="btn coral" id="btnGenCall">⚡ 生成排练指令</button>
-          </div>
-          <div class="col">
-            <label class="field" style="display:block;font-size:12px;color:var(--purple-deep);font-weight:700;margin-bottom:6px">复制以下内容发给 AI 开始模拟</label>
-            <pre class="code" id="callScript"></pre>
-            <button class="btn ghost sm" id="btnCopyCall">复制指令</button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- 面试准备模块已移除：提示见「面试进度」顶部 -->
 
     <!-- 独立看板模块已移除 -->
   </main>
@@ -279,12 +258,6 @@ const DEFAULT_PROFILE = {
     '梳理开源项目话术：河南大学新生攻略 Skill、PPT Quick Report 管线'
   ]
 };
-const DEFAULT_RESUMES = [
-  {id:uid(),name:'通用版（母版 AA刘峻豪简历_v2）',direction:'综合 / 视频内容',highlights:'全流程剪辑调色;AIGC;抖音运营;短视频铜奖;地下八英里',updatedAt:'2026-08-31',points:''},
-  {id:uid(),name:'哇唧唧哇艺人宣传版 v1',direction:'影视宣传 / 艺人宣发',highlights:'地下八英里宣发;2500+社群;5000人门票售罄;短视频;Hip-Hop',updatedAt:'2026-08-30',points:''},
-  {id:uid(),name:'视觉导演 / 视频制片版（影视飓风·火山方舟）',direction:'影视制作 / 视觉导演',highlights:'Premiere;Ae;剪映;分镜;现场执行;《梦回汴梁》',updatedAt:'2026-08-31',points:''},
-  {id:uid(),name:'AIGC / AI 内容版（网易内容极客）',direction:'AIGC / 创意短片 / AI 内容',highlights:'即梦;可灵;Coze;开源工作流;数据驱动提效30%',updatedAt:'2026-08-31',points:''}
-];
 const DEFAULT_QA = [
   {q:'请做一分钟自我介绍',a:'突出：河南大学药学背景下长出的复合内容能力——视觉内容全流程（脚本→拍摄→剪辑→调色）+AIGC（即梦/可灵）+音乐制作（Logic Pro X）；用抖音近百万播放爆款、地下八英里 2500+ 社群、GitHub 开源工作流佐证；收尾点名目标方向（艺人宣传/视觉导演），作品集（你的作品集链接）。'},
   {q:'为什么选择这个岗位 / 方向？',a:'结合自身宣发实习与爆款运营数据，说明对「内容×传播」的长期兴趣与匹配度。'},
@@ -302,7 +275,6 @@ const DEFAULT_QA = [
 
 /* ============ 状态 ============ */
 let PROFILE = LS.get('qz_profile', DEFAULT_PROFILE);
-let RESUMES = LS.get('qz_resumes', DEFAULT_RESUMES);
 let POSITIONS = LS.get('qz_positions', []);
 let INTERVIEWS = LS.get('qz_interviews', []);
 let QA = LS.get('qz_qa', DEFAULT_QA);
@@ -319,7 +291,6 @@ $$('.nav-btn').forEach(b=>b.addEventListener('click',()=>{
   if(b.dataset.page==='pool') renderPool();
   if(b.dataset.page==='jobs') renderJobs();
   if(b.dataset.page==='interview') renderInterviews();
-  if(b.dataset.page==='prep') renderPrep();
 }));
 
 /* ============ 信息池看板 ============ */
@@ -479,7 +450,7 @@ $('#btnAddJob').addEventListener('click',()=>{
   });
 });
 
-/* ============ 简历定制（已移除，提示见「面试准备」顶部） ============ */
+/* ============ 简历定制（已移除） ============ */
 
 /* ============ 面试进度 ============ */
 function renderInterviews(){
@@ -521,41 +492,6 @@ function editInterview(id){
     if(!id) INTERVIEWS.unshift(iv); LS.set('qz_interviews',INTERVIEWS); closeModal(); renderInterviews(); toast('已保存面试记录');
   });
 }
-
-/* ============ 面试准备（仅保留排练指令：方向 + JD + 简历） ============ */
-function renderPrep(){
-  $('#callDir').innerHTML=RESUMES.map(r=>`<option value="${r.id}">${esc(r.direction||r.name)}</option>`).join('') || '<option value="">通用方向</option>';
-  fillResumeFromDir();
-  $('#callScript').textContent=buildCallScript();
-}
-function fillResumeFromDir(){
-  const r=RESUMES.find(x=>x.id===$('#callDir').value);
-  if(r) $('#callResume').value=(r.highlights||'').replace(/;/g,'；');
-}
-function buildCallScript(){
-  const dirSel=$('#callDir'); const dir=dirSel.selectedOptions&&dirSel.selectedOptions[0]?dirSel.selectedOptions[0].textContent:'视频内容';
-  const jd=$('#callJD').value.trim();
-  const resume=$('#callResume').value.trim();
-  const baseResume=resume||((PROFILE.strengths||[]).join('；'));
-  return `你现在扮演【${dir}】方向的资深面试官，对我（${PROFILE.name}）进行一场约 15 分钟的电话模拟面试。
-
-${jd?('【应聘岗位 JD 要点】\n'+jd+'\n'):'（未提供 JD，请围绕我的方向与作品自由提问）'}
-
-【我的简历 / 亮点】\n${baseResume}
-
-作品锚点：AIGC 商业短片《梦回汴梁》（AI 复活《清明上河图》× 实拍现代开封匹配剪辑）与抖音近百万播放爆款。
-
-要求：
-1. 以电话口吻开场（"喂，你好，我是 XX 公司的面试官……"），全程用中文；
-2. 先让我做 1 分钟自我介绍，再结合上方 JD 与我的简历，连续追问 3-5 个专业问题（重点考察岗位匹配度、作品细节与实战数据）；
-3. 中途故意抛 1 个压力 / 陷阱问题，考察临场反应与表达；
-4. 每轮我回答后先简短点评再继续，最后给整体表现评分（10 分制）与 3 条可落地的改进建议；
-5. 当我回答"我们结束吧"时收尾。
-现在开始，请直接以面试官身份说话。`;
-}
-$('#callDir').addEventListener('change',()=>{ fillResumeFromDir(); $('#callScript').textContent=buildCallScript(); });
-$('#btnGenCall').addEventListener('click',()=>{ $('#callScript').textContent=buildCallScript(); toast('已生成排练指令'); });
-$('#btnCopyCall').addEventListener('click',()=>{ const t=$('#callScript').textContent; navigator.clipboard?.writeText(t); toast('指令已复制'); });
 
 /* ============ 弹窗 ============ */
 function openModal(html){ $('#modalBox').innerHTML=html; $('#modalBg').classList.add('show'); }
