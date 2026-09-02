@@ -309,16 +309,15 @@ function fallbackCopy(t,done){
 // 按天确定性取 3 个报名中岗位（同日稳定、跨天变化）
 function renderDailyRec(){
   const recs=RECRUIT.records||[];
-  const d=new Date(); const key=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
-  let h=0; for(let i=0;i<key.length;i++) h=(h*31+key.charCodeAt(i))>>>0;
+  const key=todayKey();
   const open=recs.filter(r=>statusOf(r).key!=='closed');
   const box=$('#dailyRec');
   if(!open.length){ box.innerHTML='<div class="rec-head">🔥 今日推荐 <span class="muted">'+key+'</span></div><div class="muted">暂无报名中的岗位，点「↻ 刷新数据」或等待每日 8:00 更新。</div>'; return; }
-  const arr=[...open]; let seed=h;
+  const arr=[...open]; let seed=daySeed();
   const rnd=()=>{ seed=(seed*1103515245+12345)>>>0; return seed/4294967296; };
   for(let i=arr.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); const t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
   const picks=arr.slice(0,3);
-  box.innerHTML='<div class="rec-head">🔥 今日推荐 <span class="muted">'+key+' · 每天 8:00 自动更新 · 点「复制名称」去招聘官网搜 JD</span></div>'+
+  box.innerHTML='<div class="rec-head" style="display:flex;align-items:center;gap:8px">🔥 今日推荐 <span class="muted">'+key+' · 每天 8:00 自动更新 · 点「复制名称」去招聘官网搜 JD</span><button class="btn sm ghost" data-refresh-rec style="margin-left:auto">↻ 换一批</button></div>'+
     picks.map(r=>{
       const badge=r.category==='央国企'?'badge-soe':'badge-net';
       const inJobs=POSITIONS.some(p=>p.srcId===r.id);
@@ -334,6 +333,23 @@ function renderDailyRec(){
     }).join('');
   $$('#dailyRec [data-copy]').forEach(b=>b.addEventListener('click',()=>copyText(b.dataset.copy)));
   $$('#dailyRec [data-enter]').forEach(b=>b.addEventListener('click',()=>enterJob(b.dataset.enter)));
+  $$('#dailyRec [data-refresh-rec]').forEach(b=>b.addEventListener('click',refreshDailyRec));
+}
+// 今日推荐的确定性种子：同一天稳定、刷新换一批、跨天自动重置
+function todayKey(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+function daySeed(){
+  const key=todayKey();
+  const s=LS.get('qz_rec_seed',null);
+  if(s&&s.date===key) return s.seed;
+  let h=0; for(let i=0;i<key.length;i++) h=(h*31+key.charCodeAt(i))>>>0;
+  LS.set('qz_rec_seed',{date:key,seed:h});
+  return h;
+}
+function refreshDailyRec(){
+  const key=todayKey();
+  LS.set('qz_rec_seed',{date:key,seed:Math.floor(Math.random()*1e9)});
+  renderDailyRec();
+  toast('已换一批今日推荐');
 }
 function renderPool(){
   if(!dataOk()){ $('#poolTable tbody').innerHTML='<tr><td colspan="8" class="empty">未找到 recruit-seed.js，请将本文件与 recruit-seed.js / recruit-data.json 放在同一目录。</td></tr>'; $('#poolStats').innerHTML=''; return; }
