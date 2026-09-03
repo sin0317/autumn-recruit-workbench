@@ -60,3 +60,26 @@ node generate.js      # 读取 recruit-data.json → 生成 recruit-seed.js 与 
 ## 📄 License
 
 MIT —— 随意 fork、改、分发，注明出处即可。
+
+## 🌐 English
+
+**Autumn Campus-Recruit Workbench**
+
+A single-file, open-in-browser tool to manage China's 2027 autumn campus recruitment (秋招). Pure frontend (HTML + vanilla JS + localStorage), no backend, works offline. A Node script refreshes live recruit intel and builds a visual dashboard.
+
+### Features
+- Intel pool with category filters (SOE / big tech).
+- Job tracker: not applied -> applied -> written -> interview -> offer -> rejected.
+- Visual dashboard (dashboard.html): stats, deadlines, category split.
+- Resume tailoring per role (paste JD -> edit points).
+- Interview prep: mock call script, 12 common Qs, strengths/weaknesses, checklist.
+- All personal data in localStorage; intel in recruit-data.json + recruit-seed.js.
+
+### Quick start
+1. Double-click 秋招工作台.html (Chrome/Edge recommended).
+2. Intel loads from recruit-data.json; click "刷新数据" to reload.
+3. For standalone dashboard, open dashboard.html.
+
+### Update (optional)
+`node generate.js`  # recruit-data.json -> recruit-seed.js + dashboard.html
+Daily auto-refresh via CI or local scheduler.
