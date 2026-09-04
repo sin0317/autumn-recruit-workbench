@@ -306,6 +306,32 @@ function fallbackCopy(t,done){
   try{ document.execCommand('copy'); done&&done(); }catch(e){ toast('复制失败，请手动复制'); }
   document.body.removeChild(ta);
 }
+// JD / 公告链接：优先取用户右键修正后的覆盖值，否则用 seed 里的原始值
+function effUrl(r){
+  const ov=LS.get('qz_url_ovr',{});
+  const o=ov[r.id];
+  return (o && o.url) ? o.url : (r.url||'');
+}
+// 右键编辑岗位的 JD / 公告链接（存 localStorage，可随时改回）
+function editUrl(id){
+  const r=RECRUIT.records.find(x=>x.id===id); if(!r) return;
+  const ov=LS.get('qz_url_ovr',{});
+  const hasOvr=!!(ov[r.id]&&ov[r.id].url);
+  const cur=hasOvr?ov[r.id].url:(r.url||'');
+  openModal(`<h3>编辑 JD / 公告链接</h3>
+    <div class="field"><label>单位 / 岗位</label><div class="muted">${esc(r.org)} · ${esc(r.position)}</div></div>
+    <div class="field"><label>原始链接${hasOvr?'（已覆盖）':''}</label><div class="muted" style="word-break:break-all">${esc(r.url||'（无）')}</div></div>
+    <div class="field"><label>新链接（清空则恢复默认）</label><input id="u_url" value="${esc(cur)}" placeholder="https://..."></div>
+    <div style="text-align:right;margin-top:10px"><button class="btn ghost" onclick="closeModal()">取消</button> <button class="btn coral" id="u_save">保存</button></div>`);
+  $('#u_save').addEventListener('click',()=>{
+    const v=$('#u_url').value.trim();
+    const ov2=LS.get('qz_url_ovr',{});
+    if(v) ov2[r.id]={url:v}; else delete ov2[r.id];
+    LS.set('qz_url_ovr',ov2);
+    closeModal(); renderPool();
+    toast(v?'JD 链接已更新':'已恢复默认链接');
+  });
+}
 // 按天确定性取 3 个报名中岗位（同日稳定、跨天变化）
 function renderDailyRec(){
   const recs=RECRUIT.records||[];
@@ -327,13 +353,14 @@ function renderDailyRec(){
           <div class="note">${r.deadline?('截止 '+esc(r.deadline)):(r.deadlineNote||'截止待公布')}</div></div>
         <div class="rec-acts">
           <button class="btn sm" data-copy="${esc(r.org+' '+r.position)}">📋 复制名称</button>
-          ${r.url?`<a class="btn sm ghost" href="${esc(r.url)}" target="_blank">查看 JD ↗</a>`:''}
+          ${r.url?`<a class="btn sm ghost" href="${esc(effUrl(r))}" target="_blank" title="左键打开 · 右键编辑链接" data-jd="${esc(r.id)}">查看 JD ↗</a>`:''}
           ${inJobs?'<span class="muted">已录入</span>':`<button class="btn sm coral" data-enter="${r.id}">录入</button>`}
         </div></div>`;
     }).join('');
   $$('#dailyRec [data-copy]').forEach(b=>b.addEventListener('click',()=>copyText(b.dataset.copy)));
   $$('#dailyRec [data-enter]').forEach(b=>b.addEventListener('click',()=>enterJob(b.dataset.enter)));
   $$('#dailyRec [data-refresh-rec]').forEach(b=>b.addEventListener('click',refreshDailyRec));
+  $$('#dailyRec [data-jd]').forEach(a=>a.addEventListener('contextmenu',e=>{ e.preventDefault(); editUrl(a.dataset.jd); }));
 }
 // 今日推荐的确定性种子：同一天稳定、刷新换一批、跨天自动重置
 function todayKey(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
@@ -381,20 +408,21 @@ function renderPool(){
       <td>${esc(r.batch)}</td>
       <td class="${stcls}">${r.deadline?esc(r.deadline):'<span class="muted">待公布</span>'}${r.deadlineNote?`<br><span class="note">${esc(r.deadlineNote)}</span>`:''}</td>
       <td class="${stcls}">${esc(s.label)}</td>
-      <td>${r.url?`<a class="src-link" href="${esc(r.url)}" target="_blank" title="${esc(r.source)}">📑 ${esc(r.source)}</a>`:`<span class="muted">${esc(r.source)}</span>`}<div class="note">${r.publishedAt?'发布 '+esc(r.publishedAt):'发布待定'}</div></td>
+      <td>${r.url?`<a class="src-link" href="${esc(effUrl(r))}" target="_blank" title="${esc(r.source)}">📑 ${esc(r.source)}</a>`:`<span class="muted">${esc(r.source)}</span>`}<div class="note">${r.publishedAt?'发布 '+esc(r.publishedAt):'发布待定'}</div></td>
       <td>${inJobs?'<span class="muted">已录入</span>':`<button class="btn sm coral" data-enter="${r.id}">录入岗位</button>`}
         <button class="btn sm" data-copy="${esc(r.org+' '+r.position)}">📋 复制名称</button>
-        ${r.url?`<a class="btn sm ghost" href="${esc(r.url)}" target="_blank">查看 JD ↗</a>`:''}</td>
+        ${r.url?`<a class="btn sm ghost" href="${esc(effUrl(r))}" target="_blank" title="左键打开 · 右键编辑链接" data-jd="${esc(r.id)}">查看 JD ↗</a>`:''}</td>
     </tr>`;
   }).join('');
   $$('#poolTable [data-enter]').forEach(b=>b.addEventListener('click',()=>enterJob(b.dataset.enter)));
   $$('#poolTable [data-copy]').forEach(b=>b.addEventListener('click',()=>copyText(b.dataset.copy)));
+  $$('#poolTable [data-jd]').forEach(a=>a.addEventListener('contextmenu',e=>{ e.preventDefault(); editUrl(a.dataset.jd); }));
   renderDailyRec();
 }
 function enterJob(id){
   const r=RECRUIT.records.find(x=>x.id===id); if(!r) return;
   if(POSITIONS.some(p=>p.srcId===id)){ toast('该岗位已在岗位管理中'); return; }
-  POSITIONS.unshift({id:uid(),srcId:id,org:r.org,position:r.position,category:r.category,batch:r.batch,deadline:r.deadline||'',source:r.source,url:r.url,status:'未投递',note:r.deadlineNote||''});
+  POSITIONS.unshift({id:uid(),srcId:id,org:r.org,position:r.position,category:r.category,batch:r.batch,deadline:r.deadline||'',source:r.source,url:effUrl(r),status:'未投递',note:r.deadlineNote||''});
   LS.set('qz_positions',POSITIONS); toast('已录入：'+r.org); renderJobs();
 }
 $('#fCat').addEventListener('change',renderPool);
