@@ -460,7 +460,7 @@ function renderJobs(){
       <td><button class="btn sm ghost" data-note="${p.id}">备注</button> <button class="btn sm" data-del="${p.id}" style="background:#F3D9D3;color:#B23A26">删除</button></td>
     </tr>`;
   }).join('');
-  $$('#jobsTable [data-st]').forEach(s=>s.addEventListener('change',()=>{ const p=POSITIONS.find(x=>x.id===s.dataset.st); p.status=s.value; LS.set('qz_positions',POSITIONS); renderPipeline(); toast('状态→'+p.status); }));
+  $$('#jobsTable [data-st]').forEach(s=>s.addEventListener('change',()=>{ const p=POSITIONS.find(x=>x.id===s.dataset.st); p.status=s.value; LS.set('qz_positions',POSITIONS); renderPipeline(); const added=ensureInterviewFor(p); if(added){ LS.set('qz_interviews',INTERVIEWS); renderInterviews(); toast('状态→'+p.status+' · 已自动建「一面」'); } else { toast('状态→'+p.status); } }));
   $$('#jobsTable [data-note]').forEach(b=>b.addEventListener('click',()=>{ const p=POSITIONS.find(x=>x.id===b.dataset.note); const v=prompt('备注（进度/HR/渠道等）：',p.note||''); if(v!==null){ p.note=v; LS.set('qz_positions',POSITIONS); renderJobs(); } }));
   $$('#jobsTable [data-del]').forEach(b=>b.addEventListener('click',()=>{ if(confirm('确认删除该岗位记录？')){ POSITIONS=POSITIONS.filter(x=>x.id!==b.dataset.del); LS.set('qz_positions',POSITIONS); renderJobs(); } }));
 }
@@ -537,12 +537,28 @@ function editInterview(id){
   });
 }
 
+/* ============ 面试中 → 自动建「一面」 ============ */
+// 状态变为「面试中」且尚无该岗位面试记录时，自动填入面试进度一条「一面」
+function ensureInterviewFor(p){
+  if(!p || p.status!=='面试中') return false;
+  if(INTERVIEWS.some(iv=>iv.jobId===p.id)) return false; // 已有该岗位记录则不重复建
+  INTERVIEWS.unshift({id:uid(),jobId:p.id,date:new Date().toISOString().slice(0,10),round:'一面',form:'视频',qa:'',review:'',result:'待定'});
+  return true;
+}
+// 初始化时补齐：无论状态是 UI 改的、import 导入的、还是手动改的 localStorage，只要「面试中」且缺记录就建（幂等）
+function syncInterviews(){
+  let added=0; POSITIONS.forEach(p=>{ if(ensureInterviewFor(p)) added++; });
+  if(added) LS.set('qz_interviews',INTERVIEWS);
+  return added;
+}
+
 /* ============ 弹窗 ============ */
 function openModal(html){ $('#modalBox').innerHTML=html; $('#modalBg').classList.add('show'); }
 function closeModal(){ $('#modalBg').classList.remove('show'); }
 $('#modalBg').addEventListener('click',e=>{ if(e.target===$('#modalBg')) closeModal(); });
 
 /* ============ 初始化 ============ */
+syncInterviews(); // 补齐「面试中」岗位对应的「一面」记录（幂等）
 renderPool();
 toast(dataOk()? '信息池已加载 '+RECRUIT.records.length+' 条' : '未检测到 recruit-seed.js');
 </script>
