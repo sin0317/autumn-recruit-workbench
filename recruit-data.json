@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-09-06",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -355,13 +355,13 @@
     {
       "id": "casic-2027",
       "org": "航天科工",
-      "position": "2027校园招聘（提前批，研发 / 技术 / 职能）",
+      "position": "2027校园招聘（正式批，研发 / 技术 / 职能）",
       "category": "央国企",
-      "batch": "提前批",
-      "deadline": "2026-08-24",
-      "deadlineNote": "提前批已截止（参考公告），正式批9-10月",
-      "source": "航天科工校招 / 军工央企招聘",
-      "publishedAt": "2026-06-24",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届秋季招聘于2026-09-02全面启动（正式批），招满即止；提前批(8.24)已截止",
+      "source": "国务院国资委人事招聘专栏 / 航天科工校招",
+      "publishedAt": "2026-09-02",
       "url": "http://casicjob.iguopin.com",
       "target": "2027届（理工科为主）"
     },
@@ -715,6 +715,84 @@
       "publishedAt": "2026-09-05",
       "url": "https://www.iguopin.com",
       "target": "2027届"
+    },
+    {
+      "id": "citic-group-2027",
+      "org": "中信集团",
+      "position": "2027年度校园招聘（集团总部管理培训生 / 综合金融 / 先进智造 / 先进材料 / 新消费 / 新型城镇化多方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "2026-10-08",
+      "deadlineNote": "网申 2026.9.1-10.8 24点；笔试/面试以官网为准",
+      "source": "中信集团招聘官网 job.citic.com / 北京大学就业信息网",
+      "publishedAt": "2026-09-01",
+      "url": "https://job.citic.com",
+      "target": "2027届（2027.7.31前取得学历学位的硕博为主，含2026.1-2027.7归国留学生）"
+    },
+    {
+      "id": "avic-2027",
+      "org": "中国航空工业集团",
+      "position": "2027届校园招聘（研发 / 技术 / 职能等多方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招于2026-09-01正式启动，招满即止（以官网为准）",
+      "source": "国务院国资委人事招聘专栏 / 航空工业集团官网",
+      "publishedAt": "2026-09-01",
+      "url": "https://www.avic.com.cn",
+      "target": "2027届（理工科为主）"
+    },
+    {
+      "id": "avic-shenfei-2027",
+      "org": "航空工业沈飞",
+      "position": "2027届校园招聘（航空研发 / 技术 / 制造方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招于2026-09-01正式启动，招满即止（以官网为准）",
+      "source": "国务院国资委人事招聘专栏",
+      "publishedAt": "2026-09-01",
+      "url": "https://www.avic.com.cn",
+      "target": "2027届（理工科为主）"
+    },
+    {
+      "id": "ct-quantum-2027",
+      "org": "中电信量子集团",
+      "position": "2027校园招聘（量子通信 / 网络安全 / 研发方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027校园招聘于2026-09-02正式启动，招满即止",
+      "source": "国务院国资委人事招聘专栏 / 中国电信招聘专栏",
+      "publishedAt": "2026-09-02",
+      "url": "https://www.chinatelecom.com.cn/zp/",
+      "target": "2027届"
+    },
+    {
+      "id": "sdic-2027",
+      "org": "国投集团（国家开发投资集团）",
+      "position": "2027届校园招聘（集团管培生 / 电力 / 港口 / 生物 / 智能科技 / 金融 / 投资等多方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "网申截止以各招聘单位发布岗位为准，招满即止（以官网为准）",
+      "source": "国聘网 sdic.iguopin.com / 北京大学就业信息网",
+      "publishedAt": "2026-09-06",
+      "url": "https://sdic.iguopin.com",
+      "target": "2027届（含2026届未就业）"
+    },
+    {
+      "id": "norinco-208-2027",
+      "org": "中国兵器工业第二〇八研究所",
+      "position": "2027届高校精英招募（研发 / 技术方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届高校精英招募于2026-09-03发布，招满即止",
+      "source": "国务院国资委人事招聘专栏",
+      "publishedAt": "2026-09-03",
+      "url": "https://www.norincogroup.com.cn",
+      "target": "2027届（理工科为主）"
     }
   ]
 }
