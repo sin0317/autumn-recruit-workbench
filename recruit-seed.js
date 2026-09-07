@@ -1,7 +1,7 @@
 window.__RECRUIT_DATA__ = {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-06",
+    "updatedAt": "2026-09-07",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -294,7 +294,7 @@ window.__RECRUIT_DATA__ = {
       "category": "央国企",
       "batch": "一批（未发布）",
       "deadline": "",
-      "deadlineNote": "提前批 9-10 月宣讲；一批预计 11 月初网申、12 月上旬笔试（预测，以官网为准）",
+      "deadlineNote": "提前批 9 月发布、10 月中旬国调网调专项；一批预计 11 月中旬网申、12 月上旬笔试（预测，以官网为准）",
       "source": "国家电网人力资源招聘平台 zhaopin.sgcc.com.cn",
       "publishedAt": "",
       "url": "https://zhaopin.sgcc.com.cn",
@@ -333,7 +333,7 @@ window.__RECRUIT_DATA__ = {
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "预计 2026 年 9 月中旬开启网申（预测，以官网为准）",
+      "deadlineNote": "预计 2026 年 9 月 15 日发布公告、开启网申（预测，以官网为准）",
       "source": "中石油招聘系统",
       "publishedAt": "",
       "url": "https://zhaopin.cnpc.com.cn",
@@ -793,7 +793,59 @@ window.__RECRUIT_DATA__ = {
       "publishedAt": "2026-09-03",
       "url": "https://www.norincogroup.com.cn",
       "target": "2027届（理工科为主）"
+    },
+    {
+      "id": "chinapost-2027",
+      "org": "中国邮政集团",
+      "position": "2027届校园招聘（寄递物流 / 金融 / 信息技术 / 综合管理多方向，覆盖全国各级网点）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "2026-10-31",
+      "deadlineNote": "集团统招正式批9月1日发布全国公告，网申至10月31日；全国统一笔试11月中旬（以官网为准）",
+      "source": "中国邮政招聘官网 zhaopin.chinapost.com.cn / 国聘网",
+      "publishedAt": "2026-09-01",
+      "url": "https://zhaopin.chinapost.com.cn",
+      "target": "2027届（2026届未就业亦可）"
+    },
+    {
+      "id": "cscec-2027",
+      "org": "中国建筑（中建集团）",
+      "position": "2027届校园招聘（工程技术 / 设计研发 / 商务运营 / 金融投资 / 海外业务，八大局及专业公司）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027秋招预计9月启动网申（先集团统一在线测评、后投简历）；具体截止以官网为准",
+      "source": "中国建筑校园招聘官网 recruit.cscec.com / 高校就业网",
+      "publishedAt": "2026-09-01",
+      "url": "https://recruit.cscec.com",
+      "target": "2027届本科及以上"
+    },
+    {
+      "id": "casic-23-2027",
+      "org": "航天科工二院二十三所",
+      "position": "2027届校园招聘（电子 / 通信 / 雷达 / 计算机 / 控制 / 材料 / 机械，北京为主）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招于2026-09-01开启，招满即止",
+      "source": "国务院国资委人事招聘专栏 / 国聘网",
+      "publishedAt": "2026-09-01",
+      "url": "https://www.iguopin.com",
+      "target": "2027届（理工科为主）"
+    },
+    {
+      "id": "cosco-seafarer-2027",
+      "org": "中远海运船员公司",
+      "position": "2027届航海类校园招聘（航海技术 / 轮机工程等船员岗位）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届航海类校招于2026-09-01开启，招满即止",
+      "source": "国务院国资委人事招聘专栏 / 国聘网",
+      "publishedAt": "2026-09-01",
+      "url": "https://www.iguopin.com",
+      "target": "2027届（航海技术/轮机工程等）"
     }
   ],
-  "generatedAt": "2026-09-06T00:57:11.954Z"
+  "generatedAt": "2026-09-07T01:14:51.917Z"
 };
