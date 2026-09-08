@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-07",
+    "updatedAt": "2026-09-08",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -845,6 +845,97 @@
       "publishedAt": "2026-09-01",
       "url": "https://www.iguopin.com",
       "target": "2027届（航海技术/轮机工程等）"
+    },
+    {
+      "id": "mihoyo-2027",
+      "org": "米哈游",
+      "position": "2027届校园招聘（程序&技术类 / 美术&表现类 / 产品策划类 / 质量管理类 / 运营类 / 市场&商务类 / 综合类 / 国际化类，含AI研发）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027秋招正式批已开启（约8月初启动），网申招满即止；第三方便民信息显示窗口约至2026-10-01（以官网为准）",
+      "source": "米哈游招聘公众号 / 牛客 / 牛企直聘",
+      "publishedAt": "2026-08-05",
+      "url": "https://jobs.mihoyo.com",
+      "target": "2027届（2026.9-2027.8毕业）"
+    },
+    {
+      "id": "papergames-2027",
+      "org": "叠纸游戏",
+      "position": "2027届秋季校园招聘（技术研发类 / 策划类 / 美术类 / 动画CG类 / 市场运营类 / 游戏音频类 / 职能支持类）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "2026-10-31",
+      "deadlineNote": "网申启动即日起，投递截止2026-10-31；笔试即日起，面试8月中旬起，Offer 9月中旬起发放",
+      "source": "叠纸游戏招聘公众号 / 牛企直聘",
+      "publishedAt": "2026-08-04",
+      "url": "https://career.papegames.com/campus",
+      "target": "2027届（2026.9-2027.8毕业）"
+    },
+    {
+      "id": "swhy-2027",
+      "org": "申万宏源",
+      "position": "2027届秋季校园招聘（投行 / 投资交易 / 资产管理 / 财富管理 / 机构业务 / 金融科技 / 合规风控 / 运营财务 / 党群职能，含分支机构财富顾问岗）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "2026-10-25",
+      "deadlineNote": "网申&测评截止2026-10-25 23:59；笔试面试2026-11月起；实习体验12月起；录用2027年1月起",
+      "source": "申万宏源证券招聘公众号 / 高校就业网",
+      "publishedAt": "2026-08-25",
+      "url": "http://www.swhysc.com",
+      "target": "2027届（境内2027.1-7毕业，境外2026.5-2027.7毕业，硕士及以上为主）"
+    },
+    {
+      "id": "cms-2027",
+      "org": "招商证券",
+      "position": "2027届校园招聘（投行类 / 研究类 / 投资类 / 营销类 / IT类 / 博士后等7部门25岗位，约300人）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "2026-10-07",
+      "deadlineNote": "报名时间2026-09-07至2026-10-07 00:00；工作地点深圳/北京/上海/广州等近百城",
+      "source": "招商证券招聘公众号 / cms.hotjob.cn",
+      "publishedAt": "2026-09-07",
+      "url": "https://cms.hotjob.cn",
+      "target": "2027届"
+    },
+    {
+      "id": "cssc-2027",
+      "org": "中国船舶集团",
+      "position": "2027届校园招聘（船舶与海洋工程 / 机械 / 电气 / 电子 / 计算机 / 人工智能 / 控制等研发与工程岗）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招已开启（网申系统 cssc.zhaopin.com / cssc.zhiye.com），招满即止；具体截止以官网为准",
+      "source": "中国船舶招聘官网 / 国资委专栏 / 高校就业网",
+      "publishedAt": "2026-08-17",
+      "url": "https://cssc.zhaopin.com",
+      "target": "2027届（硕士及以上为主）"
+    },
+    {
+      "id": "aecc-2027",
+      "org": "中国航空发动机集团（中国航发）",
+      "position": "2027届校园招聘（航空发动机核心 / 绿色动力 / 适航 / 材料制造 / 智能控制 / 经营管理等，27家直属单位）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招已启动（网申 aecc.iguopin.com），招满即止；9-10月宣讲双选会密集（以官网为准）",
+      "source": "中国航发招聘官网 aecc.iguopin.com / 国资委专栏",
+      "publishedAt": "2026-09-01",
+      "url": "https://aecc.iguopin.com",
+      "target": "2027届（理工科为主，硕博优先）"
+    },
+    {
+      "id": "crrc-2027",
+      "org": "中国中车",
+      "position": "2027届校园招聘（轨道交通研发 / 工艺 / 电气 / 软件 / 机械 / 供应链 / 职能管培等，本科至博士）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "集团统一正式批网申约2026年9月上旬启动、10月下旬关闭通道（预测，以官网为准）；提前批7-8月已收尾",
+      "source": "中车招聘云平台 crrc.hotjob.cn / 国资委专栏",
+      "publishedAt": "2026-09-01",
+      "url": "https://crrc.hotjob.cn",
+      "target": "2027届（本科/硕士/博士，部分一线岗大专）"
     }
   ]
 }
