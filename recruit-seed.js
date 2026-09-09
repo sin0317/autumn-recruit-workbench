@@ -1,7 +1,7 @@
 window.__RECRUIT_DATA__ = {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-09-09",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -346,7 +346,7 @@ window.__RECRUIT_DATA__ = {
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "预计 2026 年 9 月下旬开启网申；笔试 11 月中下旬（预测，以官网为准）",
+      "deadlineNote": "预计 2026 年 9 月下旬（约 9.25）开启网申；笔试 11 月中下旬（预测，以官网为准）",
       "source": "中石化招聘官网",
       "publishedAt": "",
       "url": "https://job.sinopec.com",
@@ -936,7 +936,124 @@ window.__RECRUIT_DATA__ = {
       "publishedAt": "2026-09-01",
       "url": "https://crrc.hotjob.cn",
       "target": "2027届（本科/硕士/博士，部分一线岗大专）"
+    },
+    {
+      "id": "zte-2027",
+      "org": "中兴通讯",
+      "position": "研发类（AI/算力硬件/芯片/6G/NTN/卫星通信/射频天线/光传输等）/ 营销类 / 供应链类 / 运营支撑类",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "网申无明确截止，岗位招满即止，建议尽早投递（2027届校招已于2026年9月启动）",
+      "source": "中兴通讯招聘官网 job.zte.com.cn / 武汉大学就业信息网",
+      "publishedAt": "2026-09-01",
+      "url": "https://job.zte.com.cn/",
+      "target": "2027届（大陆2027.1.1-12.31；港澳台及海外2026.1.1-2027.12.31）"
+    },
+    {
+      "id": "csair-2027",
+      "org": "中国南方航空",
+      "position": "飞行技术 / 机务维修 / 客舱服务 / 地面服务 / 运行指挥 / 信息技术 / 市场营销 / 财务管理 / 法律合规 / 人力资源等",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "2026-10-31",
+      "deadlineNote": "网申2026.9.1-10.31；笔试11月中旬，面试11月下旬-12月中旬",
+      "source": "中国南方航空招聘网 job.csair.com / 今日头条校招整理",
+      "publishedAt": "2026-09-01",
+      "url": "https://job.csair.com/",
+      "target": "2027届（2026.9-2027.8毕业）"
+    },
+    {
+      "id": "ceair-2027",
+      "org": "中国东方航空",
+      "position": "机务工程 / 航务运控 / IT数字化 / 营销服务 / 职能管理 / 医学保障 / 燕计划管培生等",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "2026-12-31",
+      "deadlineNote": "网申预计2026年9月上旬-12月31日（预测，以官网为准）；面试滚动开展11月-次年1月",
+      "source": "中国东方航空招聘官网 / 今日头条校招整理",
+      "publishedAt": "2026-09-01",
+      "url": "https://job.ceair.com",
+      "target": "2027届（2027.7.31前取得学历学位）"
+    },
+    {
+      "id": "cnooc-2027",
+      "org": "中国海油",
+      "position": "油气勘探开发 / 炼化生产 / 工程建设 / 数字化新能源 / 销售经营 / 综合职能 / 一线技能操作",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "预计2026年9月下旬发布公告、网申9月下旬-10月底（预测，以官网为准）；统一笔试约11月中旬",
+      "source": "中国海油招聘官网 cnooc.zhaopin.com / 高顿·上岸鸭",
+      "publishedAt": "",
+      "url": "https://cnooc.zhaopin.com",
+      "target": "2027届（含两年择业期内未就业）"
+    },
+    {
+      "id": "cgn-2027",
+      "org": "中广核",
+      "position": "核电技术类 / 电气自动化与数字类（AI、网安）/ 机械材料土建类 / 综合职能类",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "提前批/体验营已收尾；正式批预计2026年9月后开放网申（预测，以官网为准）",
+      "source": "中广核招聘 cgn.hotjob.cn / 高顿·上岸鸭",
+      "publishedAt": "",
+      "url": "https://cgn.hotjob.cn/",
+      "target": "2027届（统招应届，本科≤25/硕士≤28/博士≤33）"
+    },
+    {
+      "id": "chng-2027",
+      "org": "中国华能",
+      "position": "电力/能源（核电、新能源、火电等）/ 工程 / 职能（含华能核电专项）",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "招聘预计2026年9月12日左右启动网申（往年参照，预测，以官网为准）",
+      "source": "中国华能招聘 zhaopin.chng.com.cn / 瑞涯教育·上岸鸭",
+      "publishedAt": "",
+      "url": "http://zhaopin.chng.com.cn",
+      "target": "2027届"
+    },
+    {
+      "id": "spic-2027",
+      "org": "国家电投",
+      "position": "核电/电力/新能源 / 工程 / 职能（含钍基核能科技等专项）",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "网申约2026年9月17日开放（往年参照，预测，以官网为准）",
+      "source": "国家电投招聘 / 瑞涯教育·上岸鸭",
+      "publishedAt": "",
+      "url": "https://www.spic.com.cn",
+      "target": "2027届"
+    },
+    {
+      "id": "crec-2027",
+      "org": "中国中铁",
+      "position": "工程技术 / 工程管理 / 造价 / 机械 / 安全 / 财会 / 职能（建筑基建央企）",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "2027届校招预计2026年9-10月集中开启网申（预测，以官网为准）",
+      "source": "中国中铁招聘 / 高校就业网 / 上岸鸭时间线",
+      "publishedAt": "",
+      "url": "https://www.crec.cn",
+      "target": "2027届本科及以上"
+    },
+    {
+      "id": "crcc-2027",
+      "org": "中国铁建",
+      "position": "工程技术 / 工程管理 / 造价 / 机械 / 安全 / 财会 / 职能（建筑基建央企）",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "2027届校招预计2026年9-10月集中开启网申（预测，以官网为准）",
+      "source": "中国铁建招聘 / 高校就业网 / 上岸鸭时间线",
+      "publishedAt": "",
+      "url": "https://www.crcc.cn",
+      "target": "2027届本科及以上"
     }
   ],
-  "generatedAt": "2026-09-08T00:44:58.780Z"
+  "generatedAt": "2026-09-09T00:04:36.867Z"
 };
