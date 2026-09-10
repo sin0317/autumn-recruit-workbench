@@ -1,7 +1,7 @@
 window.__RECRUIT_DATA__ = {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-09",
+    "updatedAt": "2026-09-10",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -1053,7 +1053,20 @@ window.__RECRUIT_DATA__ = {
       "publishedAt": "",
       "url": "https://www.crcc.cn",
       "target": "2027届本科及以上"
+    },
+    {
+      "id": "avic-shanfei-2027",
+      "org": "航空工业陕飞（陕西飞机工业）",
+      "position": "2027届校园招聘（设计研发 / 工艺技术 / 信息化软件 / 质量适航测试 / 职能管理，本硕博）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招于2026年9月正式启动，经“航空工业陕飞”官方公众号投递，招满即止（以官方为准）",
+      "source": "国资委人事招聘专栏 / 航空工业陕飞官微",
+      "publishedAt": "2026-09-04",
+      "url": "https://www.avic.com.cn",
+      "target": "2027届（本/硕/博，理工科为主）"
     }
   ],
-  "generatedAt": "2026-09-09T00:04:36.867Z"
+  "generatedAt": "2026-09-10T01:05:05.025Z"
 };
