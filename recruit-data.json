@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-11",
+    "updatedAt": "2026-09-12",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -329,15 +329,15 @@
     {
       "id": "cnpc-2027",
       "org": "中石油",
-      "position": "2027校园招聘（正式批，9月集中开启）",
+      "position": "2027校园招聘（正式批，油气勘探开发/炼化/新能源/数字化/经管等多方向）",
       "category": "央国企",
       "batch": "正式批",
-      "deadline": "",
-      "deadlineNote": "预计 2026 年 9 月 15 日发布公告、开启网申（预测，以官网为准）",
-      "source": "中石油招聘系统",
-      "publishedAt": "",
+      "deadline": "2026-10-15",
+      "deadlineNote": "官方确认2026秋招9.9启动，报名截止2026-10-15 23:59（中国石油高校毕业生招聘平台为唯一渠道）",
+      "source": "中国石油网 cnpc.com.cn / 中国石油高校毕业生招聘平台 zhaopin.cnpc.com.cn",
+      "publishedAt": "2026-09-09",
       "url": "https://zhaopin.cnpc.com.cn",
-      "target": "2027届"
+      "target": "2027届（2026届未就业亦可）"
     },
     {
       "id": "sinopec-2027",
@@ -983,7 +983,7 @@
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "预计2026年9月下旬发布公告、网申9月下旬-10月底（预测，以官网为准）；统一笔试约11月中旬",
+      "deadlineNote": "网上报名预计2026年9月21日左右启动、持续至10月底（预测，以官网为准）；统一笔试约11月中旬",
       "source": "中国海油招聘官网 cnooc.zhaopin.com / 高顿·上岸鸭",
       "publishedAt": "",
       "url": "https://cnooc.zhaopin.com",
@@ -1112,12 +1112,64 @@
       "position": "2027届校园招聘（投资 / 金融 / 综合职能方向）",
       "category": "央国企",
       "batch": "正式批",
-      "deadline": "",
-      "deadlineNote": "招满即止（以官网为准）",
+      "deadline": "2026-10-23",
+      "deadlineNote": "网申截止2026-10-23（国聘网列名国脉新星计划，14家子企业）",
       "source": "国聘网 https://www.iguopin.com",
       "publishedAt": "2026-09-09",
       "url": "https://www.iguopin.com",
       "target": "2027届"
+    },
+    {
+      "id": "cec-2027",
+      "org": "中国电子",
+      "position": "2027届校园招聘（集成电路 / 计算机 / 电子信息 / 自动化 / 软件 / 电气 / 经管 / 法学等，北京/上海/深圳/武汉/成都等10城）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招于2026-09-04正式启动，招满即止（以官网为准）",
+      "source": "中国电子招聘 career.cec.com.cn / 国聘网",
+      "publishedAt": "2026-09-04",
+      "url": "https://career.cec.com.cn",
+      "target": "2027届"
+    },
+    {
+      "id": "cmg-2027",
+      "org": "招商局集团",
+      "position": "2027届全球校园招聘（交通物流 / 金融 / 船舶 / 生产运营 / 工程技术 / AI / 建筑设计 / 法务等多方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "各板块单位2026年9月上旬起陆续发布岗位，招满即止（以官网为准）",
+      "source": "招商局集团招聘官网 / 国聘网",
+      "publishedAt": "2026-09-01",
+      "url": "https://www.cmhk.com",
+      "target": "2027届"
+    },
+    {
+      "id": "cssgc-2027",
+      "org": "中国兵器装备集团",
+      "position": "2027届校园招聘（军工研发 / 技术 / 制造方向，兵器工业+兵器装备联合秋招）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招于2026年9月联合启动，全年37场招聘会陆续开展，招满即止（以官网为准）",
+      "source": "国务院国资委人事招聘专栏 / 国资小新 / 国聘网",
+      "publishedAt": "2026-09-01",
+      "url": "https://www.iguopin.com",
+      "target": "2027届（理工科为主）"
+    },
+    {
+      "id": "powerchina-2027",
+      "org": "中国电建",
+      "position": "2027届校园招聘（电气 / 能源动力 / 土木 / 新能源 / 机械 / 计算机 / 造价等，六险二金）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "下属各单位2026年9月1日起陆续启动网申，招满即止（以官网为准）",
+      "source": "中国电建招聘 powerchina.cn / 高校就业网",
+      "publishedAt": "2026-09-01",
+      "url": "https://www.powerchina.cn",
+      "target": "2027届本科及以上"
     }
   ]
 }
