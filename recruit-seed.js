@@ -1,7 +1,7 @@
 window.__RECRUIT_DATA__ = {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-12",
+    "updatedAt": "2026-09-14",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -1235,7 +1235,46 @@ window.__RECRUIT_DATA__ = {
       "publishedAt": "2026-09-03",
       "url": "https://job.spdb.com.cn",
       "target": "2027届（境内外2025.1.1-2027.7.31毕业，本科及以上）"
+    },
+    {
+      "id": "harbin-electric-2027",
+      "org": "哈尔滨电气集团（哈电集团）",
+      "position": "2027届校园招聘（机械 / 电气 / 能源动力 / 自动化 / 材料 / 计算机 / 电子信息 / 水利水电 / 核科学 / 控制 / 船舶 / 力学 / 数学 / 管理 / 法学；核心子企业哈电电机厂、锅炉厂、汽轮机厂等）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招已于2026年9月启动（官网 hadian.zhaopin.com），招满即止；核心子企业哈尔滨电机厂简历投递至2027-07-31（以官网为准）",
+      "source": "哈尔滨电气集团2027届校招简章 / 高校就业网（哈工大威海、厦大、西交等）",
+      "publishedAt": "2026-09-01",
+      "url": "https://hadian.zhaopin.com",
+      "target": "2027届（含2026届未就业；本科/硕士/博士）"
+    },
+    {
+      "id": "chinadatang-2027",
+      "org": "中国大唐集团",
+      "position": "2027届校园招聘（电力生产 / 新能源 / 储能 / 氢能 / 数字科技 / 金融环保 / 职能；43家二级单位、300余家基层企业）",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "2027届秋招预计2026年9月下旬-10月下旬开放网申（预测，以官网为准）；优才提前批7-9月；官网 zhaopin.china-cdt.com",
+      "source": "中国大唐集团招聘平台 zhaopin.china-cdt.com / 高顿·央国企 / 高校就业网",
+      "publishedAt": "",
+      "url": "https://zhaopin.china-cdt.com",
+      "target": "2027届（2026.9-2027.8毕业，本科及以上；部分基层专科）"
+    },
+    {
+      "id": "huadian-2027",
+      "org": "中国华电集团",
+      "position": "2027届校园招聘（电力生产运维 / 新能源 / 财务 / 项目前期；浙江等区域公司先行，集团统招随后）",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "浙江等区域公司2027校招已于2026年9月启动宣讲网申；集团正式批预计2026年10月集中开放（预测，以官网为准）",
+      "source": "中国华电集团浙江公司2027校招 / 高校就业网（浙大、大连理工、南开、武大等）",
+      "publishedAt": "2026-09-02",
+      "url": "https://www.chd.com.cn",
+      "target": "2027届（海内外应届，本科及以上）"
     }
   ],
-  "generatedAt": "2026-09-13T00:07:13.597Z"
+  "generatedAt": "2026-09-14T00:45:48.564Z"
 };
