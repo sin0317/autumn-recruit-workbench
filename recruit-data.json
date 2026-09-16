@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-15",
+    "updatedAt": "2026-09-16",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -86,7 +86,7 @@
       "category": "互联网大厂",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "招满即止",
+      "deadlineNote": "招满即止；部分第三方渠道显示网申至2026-12-31，以官网为准",
       "source": "B站招聘 / 网易",
       "publishedAt": "2026-08-03",
       "url": "https://campus.bilibili.com",
@@ -1326,6 +1326,19 @@
       "publishedAt": "",
       "url": "https://www.chinalco.com.cn",
       "target": "2027届（硕博优先，部分基层大专）"
+    },
+    {
+      "id": "oppo-2027",
+      "org": "OPPO",
+      "position": "算法 / 软件研发 / 硬件研发 / 芯片 / 产品 / 市场 / 设计 / 职能 / 供应链等多方向（2027届全球校招）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招已于2026年7月启动，网申招满即止（以官网为准）",
+      "source": "OPPO招聘官网 careers.oppo.com / 互联网校招汇总",
+      "publishedAt": "2026-07-26",
+      "url": "https://careers.oppo.com",
+      "target": "2027届（2026.9-2027.8毕业）"
     }
   ]
 }
