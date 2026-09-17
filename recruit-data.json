@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-16",
+    "updatedAt": "2026-09-17",
     "owner": "刘峻豪",
     "scope": "仅面向2027届毕业生，已排除社会招聘",
     "sources": [
@@ -138,7 +138,7 @@
       "category": "互联网大厂",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "招满即止",
+      "deadlineNote": "招满即止；第三方整理称网申截止约2026-10-20（以官网为准）",
       "source": "网易校园招聘 campus.163.com",
       "publishedAt": "2026-08-12",
       "url": "https://campus.163.com",
@@ -1339,6 +1339,45 @@
       "publishedAt": "2026-07-26",
       "url": "https://careers.oppo.com",
       "target": "2027届（2026.9-2027.8毕业）"
+    },
+    {
+      "id": "pinduoduo-formal-2027",
+      "org": "拼多多（正式批）",
+      "position": "研发（AI Infra/大模型算法/服务端/客户端/前端/数据分析/安全）/ 产品·市场 / 运营 / 视觉（设计·视频创意制作）/ 语言（多语种）/ 综合管培（含HR/法务/行政/国际公关）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "2027-01-31",
+      "deadlineNote": "网申2026-09-02起至2027-01-31（正式批启动，3000+ OFFER，研发岗含免笔试通道）；提前批未通过不影响正式批",
+      "source": "拼多多校招官网 careers.pddglobalhr.com / 官方微信公众号",
+      "publishedAt": "2026-09-02",
+      "url": "https://careers.pddglobalhr.com/campus",
+      "target": "2027届（2026.9-2027.8毕业）"
+    },
+    {
+      "id": "cofco-2027",
+      "org": "中粮集团",
+      "position": "信息技术与数智化 / 科创研发 / 物流供应链 / 品牌营销 / 投资研究 / 大宗贸易 / 农业技术 / 食品工艺 / 生产制造 / 战略规划 / 运营管理 / 财会审计 / 人事行政 / 质量安全 / 法律风控 / 党群纪检（优粮生计划）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "2026-10-28",
+      "deadlineNote": "简历投递截止2026-10-28；官方网申平台 campus.51job.com/cofco 已开放",
+      "source": "中粮集团官方微信公众号 / 中公教育转载",
+      "publishedAt": "2026-09-15",
+      "url": "https://campus.51job.com/cofco",
+      "target": "2027届海内外高校优秀毕业生"
+    },
+    {
+      "id": "csg-2027",
+      "org": "南方电网",
+      "position": "电气生产类（占70%，县域大专可报）/ 数字信息类（计算机AI扩招）/ 新能源储能 / 基建机械 / 综合经管（财会法学）；覆盖广东、广西、云南、贵州、海南五省区",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "2027届校招提前批宣讲9月启动，正式批公告预计2026-10月中旬发布、10-11月网申、12月上旬笔试（预测，以官网 zhaopin.csg.cn 为准）",
+      "source": "南方电网招聘系统 zhaopin.csg.cn / 高顿·上岸鸭时间线",
+      "publishedAt": "",
+      "url": "https://zhaopin.csg.cn",
+      "target": "2027届（2027.8.31前取得学历学位；留学生2026.7-2027.6毕业）"
     }
   ]
 }
