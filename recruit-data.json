@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-23",
+    "updatedAt": "2026-09-24",
     "owner": "刘峻豪",
     "scope": "仅面向 2027 届毕业生的秋季校园招聘【正式岗位】（毕业时间约 2026.9–2027.8）；排除社会招聘、社招通道与纯实习岗位。覆盖：央国企 + 互联网大厂，并重点补充传媒 / 影视 / 文化类对口单位（新华社、中央广播电视总台、芒果TV、咪咕等）。",
     "sources": [
@@ -346,8 +346,8 @@
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "预计 2026 年 9 月下旬（约 9.25）开启网申；笔试 11 月中下旬（预测，以官网为准）",
-      "source": "中石化招聘官网",
+      "deadlineNote": "正式秋招公告预计2026-9-25发布、网申9月下旬-10月下旬（约11月中旬笔试）；以官网job.sinopec.com为准（预测）",
+      "source": "中石化招聘官网 / 多家中公·上岸鸭整理",
       "publishedAt": "",
       "url": "https://job.sinopec.com",
       "target": "2027届"
@@ -436,9 +436,9 @@
       "position": "搜索 / 推荐 / 广告 / 基座大模型 / AI Agent / AI Infra / AI Coding / 多模态 / 语音 / 引擎架构 / 多媒体 / 安全 / 云原生 / 存储数据库（REDstar顶尖人才计划）",
       "category": "互联网大厂",
       "batch": "正式批",
-      "deadline": "",
-      "deadlineNote": "8月25日启动，招满即止",
-      "source": "小红书招聘 / 江南都市报",
+      "deadline": "2027-06-30",
+      "deadlineNote": "8月25日启动，网申招满即止；校招职位有效期至2027-06-30（浙大/吉大就业网公示），以官网campus.xiaohongshu.com为准",
+      "source": "小红书招聘 / 浙大·吉大就业网",
       "publishedAt": "2026-08-25",
       "url": "https://campus.xiaohongshu.com",
       "target": "2027届（含毕业两年内技术人才）"
@@ -983,7 +983,7 @@
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "网上报名预计2026年9月20日左右启动、持续至10月底（预测，以官网为准）；统一笔试约11月中旬",
+      "deadlineNote": "网上报名已于2026年9月下旬启动（官网cnooc.zhaopin.com已开放），网申持续至10月底左右、招满即止；统一笔试约11月中旬（以官网为准）",
       "source": "中国海油招聘官网 cnooc.zhaopin.com / 高顿·上岸鸭",
       "publishedAt": "",
       "url": "https://cnooc.zhaopin.com",
@@ -1408,28 +1408,54 @@
     {
       "id": "mgtv-2027",
       "org": "芒果TV（湖南快乐阳光互动娱乐传媒）",
-      "position": "内容运营（电视剧/综艺）/ 影视策划 / 市场营销 / 产品",
+      "position": "内容运营（电视剧/综艺）/ 影视策划（AIGC内容制作·综艺编导·剧宣策划）/ 市场营销 / 产品 / 技术（AI全栈·AIGC算法）",
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "2027届秋招正式批待公告；参考往年9-10月启动（预测，以官网为准）",
-      "source": "芒果TV校招官网（Moka）",
+      "deadlineNote": "2027届秋招正式批（青芒计划）已启动：线上网申+线下宣讲，招满即止；内容类含AIGC内容制作/中短剧编剧/综艺节目编导/剧宣策划，运营类含综艺/电视剧内容运营；需提交作品集（以官网为准）",
+      "source": "芒果TV校招官网 Moka app.mokahr.com/campus-recruitment/mgtv/44490 / 51mee",
       "publishedAt": "",
       "url": "https://app.mokahr.com/campus-recruitment/mgtv/44490",
-      "target": "2027届（新闻/编导/影视文学等传媒类优先）"
+      "target": "2027届（新闻/编导/影视文学等传媒类优先；部分岗开放2026届）"
     },
     {
       "id": "migu-2027",
       "org": "中国移动咪咕公司",
-      "position": "内容类 / 运营类 / 产品类 / 研发类（视频、音乐、阅读、游戏）",
+      "position": "内容类（编辑/编剧·内容运营·内容策划）/ 运营类 / 产品类 / 研发类（视频、音乐、阅读、游戏、AI）",
       "category": "央国企",
       "batch": "正式批",
-      "deadline": "",
-      "deadlineNote": "2027届秋招待公告；参考2026届网申9月上旬-10月中旬（预测，以官网为准）",
-      "source": "咪咕招聘 job.migu.cn",
-      "publishedAt": "",
+      "deadline": "2026-10-06",
+      "deadlineNote": "2027届秋招（第六届金种子计划）已启动，网申2026.9.8起；各第三方整理截止不一（10.6/10.10/10.20/10.30），以官网job.migu.cn为准；统一笔试10.24",
+      "source": "咪咕招聘 job.migu.cn / 牛企直聘（官方微信同源）",
+      "publishedAt": "2026-09-08",
       "url": "https://job.migu.cn",
       "target": "2027届本科及以上"
+    },
+    {
+      "id": "iqiyi-2027",
+      "org": "爱奇艺",
+      "position": "运营类（内容运营·社媒流量）/ 审核类 / 客服类（岗位强调善用AI工具；实习评估通过后发正式offer）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "2026-10-31",
+      "deadlineNote": "2027届秋招（重庆为主，北京/上海亦有）网申2026.9-10.31；面试10-11月，实习2027.1-6月，评估通过2027.6-8月发正式offer（校招留用，非纯实习岗）",
+      "source": "爱奇艺校招 / 超级简历 WonderCV",
+      "publishedAt": "2026-09-24",
+      "url": "https://www.wondercv.com/xiaozhao/iqiyi-chongqing-2027-campus-recruitment-15257-8e2801",
+      "target": "2027届（2026.9-2027.8毕业；本科及以上）"
+    },
+    {
+      "id": "chinafilm-2027",
+      "org": "中国电影集团（中影集团）",
+      "position": "影视策划 / 剧本编审 / 发行管理 / 新媒体运营 / 院线运营 / 市场营销（有影视相关实习或作品优先）",
+      "category": "央国企",
+      "batch": "正式批（预测）",
+      "deadline": "",
+      "deadlineNote": "2027届校招待官网发布；往年9-10月启动、约150人规模（预测，以中影集团招聘官网为准）",
+      "source": "中影集团招聘官网（预测，待公告；参考国资小新/高校就业网梳理）",
+      "publishedAt": "",
+      "url": "https://www.chinafilm.com",
+      "target": "2027届（影视/文学/传媒类优先；本科≤25、硕士≤28）"
     }
   ]
 }
