@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-25",
+    "updatedAt": "2026-09-26",
     "owner": "刘峻豪",
     "scope": "仅面向 2027 届毕业生的秋季校园招聘【正式岗位】（毕业时间约 2026.9–2027.8）；排除社会招聘、社招通道与纯实习岗位。覆盖：央国企 + 互联网大厂，并重点补充传媒 / 影视 / 文化类对口单位（新华社、中央广播电视总台、芒果TV、咪咕等）。",
     "sources": [
@@ -138,7 +138,7 @@
       "category": "互联网大厂",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "招满即止；第三方整理称网申截止约2026-10-20（以官网为准）",
+      "deadlineNote": "集团2027届校招滚动开放（招满即止）；其中网易游戏(互娱)2027届网申2026-07-21至2026-09-21已截止，网易传媒/云音乐/有道等主体仍滚动招募（以官网 campus.163.com 为准）",
       "source": "网易校园招聘 campus.163.com",
       "publishedAt": "2026-08-12",
       "url": "https://campus.163.com",
@@ -345,10 +345,10 @@
       "position": "2027校园招聘（正式批）",
       "category": "央国企",
       "batch": "正式批",
-      "deadline": "",
-      "deadlineNote": "2027届正式秋招已开放网申（job.sinopec.com 已上线校园招聘岗位，约9月下旬-10月下旬网申、统一笔试约11月中旬），与9-25预测一致；各岗位截止以官网为准（预测）",
-      "source": "中石化招聘官网 job.sinopec.com",
-      "publishedAt": "",
+      "deadline": "2026-10-28",
+      "deadlineNote": "2027届正式秋招已于2026-09-24启动网申，报名截止2026-10-28 17:00；统一初选考试2026-11-08 15:00-17:00（线下机考）；各岗位以官网 job.sinopec.com【校园招聘】为准",
+      "source": "中石化招聘官网 job.sinopec.com / 油考雷达（官方日程汇总）",
+      "publishedAt": "2026-09-24",
       "url": "https://job.sinopec.com",
       "target": "2027届"
     },
@@ -1307,10 +1307,10 @@
       "position": "2027届校园招聘（生产运行 / 工程技术 / 信息技术 / HSE / 经济管理 / 职能管理；油气储运、电气、机械、计算机等）",
       "category": "央国企",
       "batch": "正式批",
-      "deadline": "",
-      "deadlineNote": "2027届秋招9月启动，网申预计2026.9-10月中旬（部分来源称9.1-10.15，以官网为准）；每人最多投2家单位、每家限1岗；集团统一笔试约10月底",
-      "source": "国家管网集团招聘 zhaopin.pipechina.com.cn / 应届生求职网 / 国聘",
-      "publishedAt": "",
+      "deadline": "2026-10-20",
+      "deadlineNote": "2027届秋招于2026-09-15启动报名，网申截止2026-10-20（油考雷达汇总官方日程）；每人最多投2家单位、每家限1岗；集团统一笔试约10月底（以官网 zhaopin.pipechina.com.cn 为准）",
+      "source": "国家管网集团招聘 zhaopin.pipechina.com.cn / 油考雷达（官方日程汇总）",
+      "publishedAt": "2026-09-15",
       "url": "https://zhaopin.pipechina.com.cn",
       "target": "2027届全日制（含2026届未就业）；本科CET4≥425、硕博CET6≥425"
     },
@@ -1482,6 +1482,58 @@
       "publishedAt": "",
       "url": "https://zhaopin.jsbc.com/",
       "target": "2027届（2026.7.31前取得学历学位；部分基层岗大专）"
+    },
+    {
+      "id": "xinhuanet-2027",
+      "org": "新华网股份有限公司",
+      "position": "2027届秋季校园招聘（财务管理岗 / 云计算·虚拟化运维工程师 / 安全工程师等技术及职能方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届秋招进行中（前程无忧在招职位：财务管理、云计算/虚拟化运维工程师、安全工程师等），具体截止待官网公布（以 xinhuanet.com 招聘为准）",
+      "source": "前程无忧 51job / 新华网招聘官网",
+      "publishedAt": "",
+      "url": "https://www.xinhuanet.com",
+      "target": "2027届（技术/财务/安全方向，本科及以上）"
+    },
+    {
+      "id": "huojing-wenyu-2027",
+      "org": "虎鲸文娱集团（优酷·大麦娱乐）",
+      "position": "2027届校园招聘（技术类 / 产品类 / 设计类 / 内容类 / 运营类 / 游戏类；含AIGC内容方向）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招于2026-08-05启动（优酷+大麦娱乐双事业群，内容类/运营类/技术类/设计类/游戏类），招满即止；工作地北京/上海/杭州/西安（以官网 job.alibabagroup.com 为准）",
+      "source": "优酷招聘 / 大麦娱乐官方公众号 / 阿里集团校招官网",
+      "publishedAt": "2026-08-05",
+      "url": "https://job.alibabagroup.com",
+      "target": "2027届（毕业时间2026.11-2027.10；本科及以上）"
+    },
+    {
+      "id": "tencent-cdg-2027",
+      "org": "腾讯CDG（平台与内容事业群）",
+      "position": "2027青云计划·AI前沿校招（算法工程师 / AI基础设施工程师等，覆盖内容/广告/社交等核心业务）",
+      "category": "互联网大厂",
+      "batch": "正式批",
+      "deadline": "2026-09-28",
+      "deadlineNote": "青云计划(Tencent Project UP)2027校招网申截止2026-09-28；工作地深圳/北京/上海/香港（以腾讯招聘官网为准）",
+      "source": "腾讯CDG校招官网 / 腾讯招聘公众号（WonderCV转载，企业公众号审核）",
+      "publishedAt": "2026-09-01",
+      "url": "https://join.qq.com",
+      "target": "2027届（2026.1-2027.12毕业；本硕博）"
+    },
+    {
+      "id": "sinochem-2027",
+      "org": "中国中化集团",
+      "position": "2027年度校园招聘（化工 / 材料 / 农业 / 能源 / 机械 / 数字化 / 职能等多方向）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招于2026-09-12正式启动（油考雷达汇总官方启动节点），招满即止；各子企业截止不同（以官网 zhaopin.sinochem.com 为准）",
+      "source": "中国中化招聘官网 / 油考雷达（官方日程汇总）",
+      "publishedAt": "2026-09-12",
+      "url": "https://zhaopin.sinochem.com",
+      "target": "2027届"
     }
   ]
 }
