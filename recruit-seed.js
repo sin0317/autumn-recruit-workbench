@@ -1,7 +1,7 @@
 window.__RECRUIT_DATA__ = {
   "meta": {
     "title": "2027届秋招信息池",
-    "updatedAt": "2026-09-27",
+    "updatedAt": "2026-09-28",
     "owner": "刘峻豪",
     "scope": "仅面向 2027 届毕业生的秋季校园招聘【正式岗位】（毕业时间约 2026.9–2027.8）；排除社会招聘、社招通道与纯实习岗位。覆盖：央国企 + 互联网大厂，并重点补充传媒 / 影视 / 文化类对口单位（新华社、中央广播电视总台、芒果TV、咪咕等）。",
     "sources": [
@@ -138,7 +138,7 @@ window.__RECRUIT_DATA__ = {
       "category": "互联网大厂",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "集团2027届校招滚动开放（招满即止）；网易游戏(互娱)网申渠道时间不一：部分高校就业网标注至2026-10-30，亦有渠道称9月下旬提前批截止，以 campus.163.com / campus.game.163.com 为准",
+      "deadlineNote": "集团2027届校招滚动开放（招满即止）；网易游戏(互娱)网申2026-07-21起、网易游戏雷火27届秋招网申即日起至2026-10-15；部分高校就业网曾标注互娱至2026-10-30，以 campus.163.com / campus.game.163.com 为准",
       "source": "网易校园招聘 campus.163.com",
       "publishedAt": "2026-08-12",
       "url": "https://campus.163.com",
@@ -372,9 +372,9 @@ window.__RECRUIT_DATA__ = {
       "category": "央国企",
       "batch": "正式批",
       "deadline": "",
-      "deadlineNote": "预计2026年8月左右开启（预测）",
-      "source": "中国电科官网 / 国聘网",
-      "publishedAt": "",
+      "deadlineNote": "2027届秋招已正式启动（网申2026-09-08起，官网/国聘多渠道，招满即止）；29所等研究所9月下旬宣讲、电科芯片技术研究院报名至2027年6月（以官网为准）",
+      "source": "中国电科官网 cetc.com.cn / 国聘 cetc.iguopin.com / 高校就业网",
+      "publishedAt": "2026-09-08",
       "url": "https://www.cetc.com.cn",
       "target": "2027届（研发岗硕博为主）"
     },
@@ -1018,15 +1018,15 @@ window.__RECRUIT_DATA__ = {
     {
       "id": "spic-2027",
       "org": "国家电投",
-      "position": "核电/电力/新能源 / 工程 / 职能（含钍基核能科技等专项）",
+      "position": "核电/电力/新能源 / 工程 / 职能（含钍基核能科技等专项，68家二级单位）",
       "category": "央国企",
-      "batch": "正式批（预测）",
-      "deadline": "",
-      "deadlineNote": "网申约2026年9月17日开放（往年参照，预测，以官网为准）",
-      "source": "国家电投招聘 / 瑞涯教育·上岸鸭",
-      "publishedAt": "",
+      "batch": "正式批",
+      "deadline": "2026-11-30",
+      "deadlineNote": "2027届秋招已于2026-09-14正式全面启动，网申通道持续开放；集团多数岗位报名截止2026-11-30，部分偏远/基层岗位招满即止（以官网 spic2027.iguopin.com 为准）",
+      "source": "国家电投官微 / 国聘网 spic2027.iguopin.com",
+      "publishedAt": "2026-09-14",
       "url": "https://www.spic.com.cn",
-      "target": "2027届"
+      "target": "2027届（2026届未就业亦可）"
     },
     {
       "id": "crec-2027",
@@ -1393,6 +1393,32 @@ window.__RECRUIT_DATA__ = {
       "target": "2027届（2027年7月底前取得学历学位；英语六级≥425）"
     },
     {
+      "id": "smg-2027",
+      "org": "上海文广集团（SMG）",
+      "position": "2027届校园招聘（记者 / 深度报道编导 / 综合节目编导 / 新媒体编辑 / 摄像 / 内容运营等，含东方卫视、BesTV百视通、第一财经等）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "",
+      "deadlineNote": "2027届校招待官网公告；SMG招聘官网 zhaopin.smg.cn 校园招聘通道在招（记者/深度报道编导/综合节目编导/新媒体编辑/摄像等岗位，部分社招要求经验），往年10-11月启动、招满即止（以官网为准）",
+      "source": "SMG招聘官网 zhaopin.smg.cn / 前程无忧",
+      "publishedAt": "",
+      "url": "https://zhaopin.smg.cn/recruitment/",
+      "target": "2027届（本科及以上，传媒类优先）"
+    },
+    {
+      "id": "hntv-elephant-2027",
+      "org": "大象融媒集团（河南大象融媒体集团）",
+      "position": "2027校园招聘（AI导演 / 编剧 / 新媒体运营 / 活动策划 / 业务专员等，省属国有骨干文化企业旗下公司）",
+      "category": "央国企",
+      "batch": "正式批",
+      "deadline": "2026-09-11",
+      "deadlineNote": "已截止（2026-09-11 18:00 报名截止；省属国有骨干文化企业，旗下公司12岗含AI导演/编剧/新媒体运营，直接对口视频剪辑/内容方向，河南本地机会）",
+      "source": "河南豫人才微信公众号 / 牛企直聘",
+      "publishedAt": "2026-08-30",
+      "url": "https://campus.niuqizp.com/job-vUy5atLnC.html",
+      "target": "2027届（本科及以上）"
+    },
+    {
       "id": "cmg-cctv-2027",
       "org": "中央广播电视总台（含中国国际电视总公司）",
       "position": "编导 / 后期包装制作 / 内容运营 / 新媒体视觉（需提交作品集）",
@@ -1562,5 +1588,5 @@ window.__RECRUIT_DATA__ = {
       "target": "2027届（本科及以上）"
     }
   ],
-  "generatedAt": "2026-09-27T01:12:05.874Z"
+  "generatedAt": "2026-09-28T00:57:06.312Z"
 };
