@@ -50,6 +50,8 @@ node generate.js      # 读取 recruit-data.json → 生成 recruit-seed.js 与 
 ├── recruit-data.json    # 招聘情报数据源（2027 届校招）
 ├── recruit-seed.js      # 工作台加载的信息池（由 generate.js 生成）
 ├── generate.js          # Node 生成脚本
+├── reports/             # 历史秋招日报（每日自动生成）
+├── scripts/             # 数据整理辅助脚本
 └── README.md
 ```
 
